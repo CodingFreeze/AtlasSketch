@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Abstract lab placeholder ref 009">
+  <rect width="640" height="480" fill="#050706"/>
+  <rect x="68" y="58" width="504" height="364" fill="#0e120f" stroke="#263326" stroke-width="2"/>
+  <circle cx="320" cy="228" r="132" fill="none" stroke="#b8ff6a" stroke-width="3"/>
+  <circle cx="320" cy="228" r="70" fill="none" stroke="#ff4fd8" stroke-width="3"/>
+  <path d="M320 82v292M174 228h292M226 134l188 188M414 134 226 322" stroke="#263326" stroke-width="3"/>
+  <path d="M314 108h12v38h-12M314 310h12v38h-12M200 222h38v12h-38M402 222h38v12h-38" fill="#f4e8cd"/>
+  <path d="M274 164h92v128h-92z" fill="none" stroke="#62e6ff" stroke-width="2"/>
+  <text x="92" y="404" fill="#f4e8cd" font-family="monospace" font-size="28">REF-009</text>
+</svg>

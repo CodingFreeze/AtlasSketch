@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ScanLine } from "lucide-react";
 
 import { DnaStrip } from "@/components/dna/DnaStrip";
@@ -44,10 +45,11 @@ export function ReferenceGrid({ clusters = [], references }: ReferenceGridProps)
           >
             <div className="relative aspect-[4/3] overflow-hidden border border-atlas-line bg-atlas-black">
               <div className="absolute inset-0 bg-[linear-gradient(rgba(184,255,106,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(98,230,255,0.06)_1px,transparent_1px)] bg-[size:18px_18px]" />
-              <img
+              <Image
                 alt=""
-                className="relative h-full w-full object-cover opacity-90 mix-blend-screen"
-                loading="lazy"
+                className="object-cover opacity-90 mix-blend-screen"
+                fill
+                sizes="(min-width: 1536px) 25vw, (min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
                 src={reference.placeholderPath}
               />
               <span className="absolute left-2 top-2 inline-flex items-center gap-1 border border-atlas-line bg-atlas-black/80 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-atlas-cyan">
