@@ -44,7 +44,9 @@ const kindClasses = {
 } as const;
 
 function nodeRadius(node: AtlasNode) {
-  return node.kind === "cluster" || node.kind === "region" ? 2.9 + node.weight * 0.18 : 1.8 + node.weight * 0.16;
+  return node.kind === "cluster" || node.kind === "region"
+    ? 2.9 + node.weight * 0.18
+    : 1.8 + node.weight * 0.16;
 }
 
 function edgeTone(kind: string) {
@@ -53,6 +55,20 @@ function edgeTone(kind: string) {
   if (kind === "neighbors") return "stroke-atlas-lime/45";
   if (kind === "derives") return "stroke-atlas-red/45";
   return "stroke-atlas-paper/35";
+}
+
+function getLabelPlacement(node: AtlasNode, radius: number) {
+  if (node.x >= 62) {
+    return {
+      textAnchor: "end" as const,
+      x: node.x - radius - 1.2
+    };
+  }
+
+  return {
+    textAnchor: "start" as const,
+    x: node.x + radius + 1.2
+  };
 }
 
 export function AtlasGraph({ clusters, graph, references }: AtlasGraphProps) {
@@ -79,20 +95,19 @@ export function AtlasGraph({ clusters, graph, references }: AtlasGraphProps) {
     .slice(0, 4);
 
   return (
-    <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_360px]">
+    <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_340px]">
       <Panel
         className="min-w-0 overflow-hidden"
         eyebrow="Atlas Graph"
         title="Spatial signal map"
         actions={<Chip tone="lime">{graph.nodes.length} nodes</Chip>}
       >
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_230px]">
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_270px]">
           <div className="relative min-h-[460px] overflow-hidden border border-atlas-line bg-atlas-black">
             <div className="absolute inset-0 bg-[linear-gradient(rgba(184,255,106,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(184,255,106,0.06)_1px,transparent_1px)] bg-[size:24px_24px]" />
             <svg
-              aria-label="Atlas graph of references, clusters, tags, motifs, and regions"
+              aria-hidden="true"
               className="relative h-full min-h-[460px] w-full"
-              role="img"
               viewBox="0 0 100 100"
             >
               <rect className="fill-atlas-black/70" height="100" width="100" />
@@ -123,6 +138,7 @@ export function AtlasGraph({ clusters, graph, references }: AtlasGraphProps) {
                 const isSelected = selectedNode?.id === node.id;
                 const isConnected = connections.nodes.some((connected) => connected.id === node.id);
                 const radius = nodeRadius(node);
+                const labelPlacement = getLabelPlacement(node, radius);
 
                 return (
                   <g key={node.id}>
@@ -140,20 +156,20 @@ export function AtlasGraph({ clusters, graph, references }: AtlasGraphProps) {
                       className={cn(
                         kindClasses[node.kind].fill,
                         kindClasses[node.kind].stroke,
-                        "cursor-pointer transition-opacity",
+                        "transition-opacity",
                         selectedNode && !isSelected && !isConnected ? "opacity-55" : "opacity-95"
                       )}
                       cx={node.x}
                       cy={node.y}
-                      onClick={() => setSelectedNodeId(node.id)}
                       r={radius}
                       role="presentation"
                       strokeWidth={isSelected ? 0.9 : 0.35}
                     />
                     {(node.kind === "cluster" || node.kind === "region" || isSelected) && (
                       <text
-                        className="pointer-events-none fill-atlas-paper font-mono text-[2.4px] uppercase tracking-normal"
-                        x={node.x + radius + 1.1}
+                        className="pointer-events-none fill-atlas-paper font-mono text-[2px] uppercase tracking-normal"
+                        textAnchor={labelPlacement.textAnchor}
+                        x={labelPlacement.x}
                         y={node.y + 0.8}
                       >
                         {node.label}
@@ -174,7 +190,7 @@ export function AtlasGraph({ clusters, graph, references }: AtlasGraphProps) {
                 <button
                   aria-pressed={selectedNode?.id === node.id}
                   className={cn(
-                    "grid gap-1 border px-2.5 py-2 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-cyan",
+                    "grid min-w-0 gap-1 border px-2.5 py-2 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-cyan",
                     selectedNode?.id === node.id
                       ? "border-atlas-lime bg-atlas-lime/10"
                       : "border-atlas-line bg-atlas-panel/70 hover:border-atlas-cyan"
@@ -183,11 +199,16 @@ export function AtlasGraph({ clusters, graph, references }: AtlasGraphProps) {
                   onClick={() => setSelectedNodeId(node.id)}
                   type="button"
                 >
-                  <span className="flex items-center justify-between gap-2">
+                  <span className="grid min-w-0 gap-1">
                     <span className="truncate font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-atlas-paper">
                       {node.label}
                     </span>
-                    <span className={cn("font-mono text-[10px] uppercase", kindClasses[node.kind].text)}>
+                    <span
+                      className={cn(
+                        "font-mono text-[10px] uppercase tracking-[0.12em]",
+                        kindClasses[node.kind].text
+                      )}
+                    >
                       {node.kind}
                     </span>
                   </span>
@@ -317,12 +338,18 @@ export function AtlasGraph({ clusters, graph, references }: AtlasGraphProps) {
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {clusters.map((cluster) => {
             const clusterNodes = getClusterNodes(graph, cluster.id);
+            const clusterGraphNode = graph.nodes.find(
+              (node) => node.kind === "cluster" && node.clusterId === cluster.id
+            );
 
             return (
               <button
                 className="grid min-h-40 gap-3 border border-atlas-line bg-atlas-black/35 p-3 text-left transition-colors hover:border-atlas-lime focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-cyan"
+                disabled={!clusterGraphNode}
                 key={cluster.id}
-                onClick={() => setSelectedNodeId(cluster.id)}
+                onClick={() => {
+                  if (clusterGraphNode) setSelectedNodeId(clusterGraphNode.id);
+                }}
                 type="button"
               >
                 <span className="flex items-start justify-between gap-3">
