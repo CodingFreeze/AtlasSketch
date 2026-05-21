@@ -13,25 +13,25 @@ type AppFrameProps = {
 
 function buildNav(board?: Board) {
   if (!board) {
-    return [{ label: "Boards", href: "/", key: "boards", Icon: CircuitBoard }] as const;
+    return [{ label: "Boards", href: "/", key: "boards", Icon: CircuitBoard, planned: false }] as const;
   }
 
   const boardBase = `/boards/${board.slug}`;
   return [
-    { label: "Boards", href: boardBase, key: "boards", Icon: CircuitBoard },
-    { label: "Library", href: `${boardBase}/library`, key: "library", Icon: Library },
-    { label: "Atlas", href: `${boardBase}/atlas`, key: "atlas", Icon: Network },
+    { label: "Boards", href: boardBase, key: "boards", Icon: CircuitBoard, planned: false },
+    { label: "Library", href: `${boardBase}/library`, key: "library", Icon: Library, planned: false },
+    { label: "Atlas", key: "atlas", Icon: Network, planned: true },
     {
       label: "Workbench",
-      href: `${boardBase}/workbench`,
       key: "workbench",
-      Icon: FlaskConical
+      Icon: FlaskConical,
+      planned: true
     },
     {
       label: "Artifacts",
-      href: `${boardBase}/artifacts`,
       key: "artifacts",
-      Icon: Archive
+      Icon: Archive,
+      planned: true
     }
   ] as const;
 }
@@ -60,23 +60,43 @@ export function AppFrame({ activeSection = "boards", board, children }: AppFrame
             </span>
           </Link>
           <nav aria-label="Primary navigation" className="flex min-w-0 gap-1 overflow-x-auto">
-            {nav.map(({ href, Icon, key, label }) => (
-              <Link
-                aria-current={activeSection === key ? "page" : undefined}
-                className={cn(
-                  "inline-flex h-9 shrink-0 items-center gap-2 border px-3 font-mono text-[11px] font-medium uppercase tracking-[0.14em] transition-colors",
-                  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-cyan",
-                  activeSection === key
-                    ? "border-atlas-lime bg-atlas-lime/10 text-atlas-lime"
-                    : "border-atlas-line bg-atlas-panel/70 text-atlas-muted hover:border-atlas-cyan hover:text-atlas-cyan"
-                )}
-                href={href}
-                key={key}
-              >
-                <Icon aria-hidden="true" size={14} strokeWidth={1.8} />
-                {label}
-              </Link>
-            ))}
+            {nav.map(({ Icon, key, label, planned, ...item }) => {
+              const className = cn(
+                "inline-flex h-9 shrink-0 items-center gap-2 border px-3 font-mono text-[11px] font-medium uppercase tracking-[0.14em] transition-colors",
+                planned
+                  ? "cursor-not-allowed border-atlas-line bg-atlas-panel/40 text-atlas-muted/55"
+                  : "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-cyan",
+                activeSection === key && !planned
+                  ? "border-atlas-lime bg-atlas-lime/10 text-atlas-lime"
+                  : !planned && "border-atlas-line bg-atlas-panel/70 text-atlas-muted hover:border-atlas-cyan hover:text-atlas-cyan"
+              );
+              const content = (
+                <>
+                  <Icon aria-hidden="true" size={14} strokeWidth={1.8} />
+                  {label}
+                  {planned && <span className="text-[9px] tracking-[0.12em]">Planned</span>}
+                </>
+              );
+
+              if (planned || !("href" in item)) {
+                return (
+                  <span aria-disabled="true" className={className} key={key}>
+                    {content}
+                  </span>
+                );
+              }
+
+              return (
+                <Link
+                  aria-current={activeSection === key ? "page" : undefined}
+                  className={className}
+                  href={item.href}
+                  key={key}
+                >
+                  {content}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       </header>

@@ -62,42 +62,43 @@ export default async function BoardPage({ params }: BoardPageProps) {
         </Panel>
 
         <section className="grid gap-3 md:grid-cols-3" aria-label="Board entry points">
+          <Link
+            className="group grid gap-2 border border-atlas-line bg-atlas-panel/80 p-4 transition-colors hover:border-atlas-cyan hover:text-atlas-cyan"
+            href={`/boards/${board.slug}/library`}
+          >
+            <span className="flex items-center justify-between gap-3 font-mono text-xs font-semibold uppercase tracking-[0.16em]">
+              <span className="inline-flex items-center gap-2">
+                <BookOpen aria-hidden="true" size={16} />
+                Library
+              </span>
+              <ArrowRight aria-hidden="true" size={15} />
+            </span>
+            <span className="text-sm leading-6 text-atlas-muted group-hover:text-atlas-paper/78">
+              Reference cards, tags, motifs, and clusters.
+            </span>
+          </Link>
           {[
+            { label: "Atlas", detail: "Spatial graph arrives in the next task.", Icon: Network },
             {
-              href: `/boards/${board.slug}/library`,
-              label: "Library",
-              detail: "Reference cards, tags, motifs, and clusters.",
-              Icon: BookOpen
-            },
-            {
-              href: `/boards/${board.slug}/atlas`,
-              label: "Atlas",
-              detail: "Spatial graph arrives in the next task.",
-              Icon: Network
-            },
-            {
-              href: `/boards/${board.slug}/workbench`,
               label: "Workbench",
               detail: "Deterministic seed controls arrive later.",
               Icon: FlaskConical
             }
-          ].map(({ detail, href, Icon, label }) => (
-            <Link
-              className="group grid gap-2 border border-atlas-line bg-atlas-panel/80 p-4 transition-colors hover:border-atlas-cyan hover:text-atlas-cyan"
-              href={href}
-              key={href}
+          ].map(({ detail, Icon, label }) => (
+            <div
+              aria-disabled="true"
+              className="grid gap-2 border border-atlas-line bg-atlas-panel/45 p-4 text-atlas-muted/70"
+              key={label}
             >
               <span className="flex items-center justify-between gap-3 font-mono text-xs font-semibold uppercase tracking-[0.16em]">
                 <span className="inline-flex items-center gap-2">
                   <Icon aria-hidden="true" size={16} />
                   {label}
                 </span>
-                <ArrowRight aria-hidden="true" size={15} />
+                <Chip>Planned</Chip>
               </span>
-              <span className="text-sm leading-6 text-atlas-muted group-hover:text-atlas-paper/78">
-                {detail}
-              </span>
-            </Link>
+              <span className="text-sm leading-6 text-atlas-muted">{detail}</span>
+            </div>
           ))}
         </section>
 
