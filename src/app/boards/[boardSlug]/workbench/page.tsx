@@ -39,7 +39,7 @@ export default async function WorkbenchPage({ params }: WorkbenchPageProps) {
         >
           <div className="grid gap-3 md:grid-cols-4">
             <Stat label="Seeds" value={seeds.length} tone="lime" />
-            <Stat label="Families" value={5} tone="cyan" />
+            <Stat label="Families" value={7} tone="cyan" />
             <Stat label="Clusters" value={clusters.length} />
             <Stat label="Persistence" value="None" />
           </div>

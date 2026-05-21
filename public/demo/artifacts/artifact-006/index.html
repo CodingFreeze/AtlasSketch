@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calibration Panel Study / Interface Panel v06</title>
+  <style>
+    :root {
+      --bg: #0e120f;
+      --panel: color-mix(in srgb, #0e120f 78%, #111814 22%);
+      --panel-strong: color-mix(in srgb, #0e120f 62%, #19231d 38%);
+      --text: #f4e8cd;
+      --muted: rgba(244, 232, 205, 0.64);
+      --line: rgba(244, 232, 205, 0.16);
+      --primary: #b8ff6a;
+      --secondary: #62e6ff;
+      --warning: #ff3d2e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(184, 255, 106, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(98, 230, 255, 0.04) 1px, transparent 1px),
+        radial-gradient(circle at 72% 18%, rgba(98, 230, 255, 0.08), transparent 30%),
+        var(--bg);
+      background-size: 28px 28px, 28px 28px, auto, auto;
+      font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      letter-spacing: 0;
+    }
+    .artifact {
+      min-height: 100vh;
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+      grid-template-rows: auto 1fr auto;
+    }
+    .topline, .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid var(--line);
+      background: rgba(5, 7, 6, 0.72);
+      padding: 12px 14px;
+      border-radius: 6px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(20px, 3vw, 38px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .meta, .footer {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .dna, .motifs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag, .motif {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: rgba(244, 232, 205, 0.04);
+    }
+    .tag { color: var(--primary); }
+    .motif { color: var(--secondary); }
+    .frame {
+      border: 1px solid rgba(244, 232, 205, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(244, 232, 205, 0.055), rgba(5, 7, 6, 0.84));
+      box-shadow: inset 0 0 0 1px rgba(184, 255, 106, 0.05);
+      overflow: hidden;
+      min-width: 0;
+    }
+    .label {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    @media (max-width: 760px) {
+      .artifact { padding: 12px; }
+      .topline, .footer { align-items: stretch; flex-direction: column; }
+      .graph-grid, .dashboard, .diagram, .light-table, .panel {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        min-height: auto !important;
+      }
+      .meters, .readout, aside, nav, .status {
+        grid-column: auto !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+      }
+      .meters, .table-grid { grid-template-columns: 1fr !important; }
+      svg { min-height: 340px !important; }
+      table { display: block; overflow-x: auto; }
+    }
+    
+        .panel { display:grid; grid-template-columns:220px 1fr 260px; min-height:520px; }
+        nav { padding:16px; display:grid; align-content:start; gap:8px; border-right:1px solid var(--line); }
+        button { appearance:none; border:1px solid var(--line); border-radius:4px; background:rgba(244,232,205,.04); color:var(--muted); padding:10px; text-align:left; text-transform:uppercase; font:inherit; font-size:10px; }
+        button.active { color:var(--bg); background:var(--primary); border-color:var(--primary); }
+        .matrix { padding:22px; display:grid; grid-template-columns:repeat(8, minmax(28px, 1fr)); gap:8px; align-content:center; }
+        .matrix i { aspect-ratio:1; border:1px solid var(--line); background:rgba(244,232,205,.035); }
+        .matrix i.lit { background:linear-gradient(135deg, var(--primary), var(--secondary)); box-shadow:0 0 16px rgba(184,255,106,.16); }
+        aside { border-left:1px solid var(--line); padding:18px; display:grid; align-content:center; justify-items:center; gap:18px; text-align:center; }
+        aside p { margin:0; font-size:13px; line-height:1.55; color:var(--text); }
+        .dial { width:150px; aspect-ratio:1; border:1px solid var(--line); border-radius:50%; display:grid; place-items:center; background:repeating-conic-gradient(from 0deg, rgba(244,232,205,.12) 0 8deg, transparent 8deg 18deg); }
+        .dial b { width:1px; height:58px; transform-origin:50% 100%; background:var(--warning); display:block; margin-top:-58px; }
+      
+  </style>
+</head>
+<body>
+  <main class="artifact interface-panel">
+    <header class="topline">
+      <div>
+        <div class="meta">AtlasSketch deterministic artifact / variant 6</div>
+        <h1>Calibration Panel Study / Interface Panel v06</h1>
+      </div>
+      <div class="dna"><span class="tag">interface</span><span class="tag">calibration</span><span class="tag">compression</span><span class="tag">inspection</span></div>
+    </header>
+    <section class="frame panel">
+        <nav><button type="button" class="active">interface</button><button type="button" class="">calibration</button><button type="button" class="">compression</button><button type="button" class="active">inspection</button><button type="button" class="">calibration rail</button><button type="button" class="">ledger rows</button><button type="button" class="active">registration dot</button></nav>
+        <div class="matrix"><i class="" data-index="0"></i><i class="lit" data-index="1"></i><i class="lit" data-index="2"></i><i class="lit" data-index="3"></i><i class="" data-index="4"></i><i class="lit" data-index="5"></i><i class="lit" data-index="6"></i><i class="" data-index="7"></i><i class="" data-index="8"></i><i class="" data-index="9"></i><i class="lit" data-index="10"></i><i class="" data-index="11"></i><i class="" data-index="12"></i><i class="" data-index="13"></i><i class="lit" data-index="14"></i><i class="lit" data-index="15"></i><i class="lit" data-index="16"></i><i class="lit" data-index="17"></i><i class="lit" data-index="18"></i><i class="" data-index="19"></i><i class="lit" data-index="20"></i><i class="" data-index="21"></i><i class="lit" data-index="22"></i><i class="lit" data-index="23"></i><i class="lit" data-index="24"></i><i class="" data-index="25"></i><i class="lit" data-index="26"></i><i class="" data-index="27"></i><i class="lit" data-index="28"></i><i class="" data-index="29"></i><i class="" data-index="30"></i><i class="" data-index="31"></i><i class="lit" data-index="32"></i><i class="lit" data-index="33"></i><i class="lit" data-index="34"></i><i class="" data-index="35"></i><i class="" data-index="36"></i><i class="lit" data-index="37"></i><i class="lit" data-index="38"></i><i class="" data-index="39"></i><i class="lit" data-index="40"></i><i class="lit" data-index="41"></i><i class="lit" data-index="42"></i><i class="lit" data-index="43"></i><i class="lit" data-index="44"></i><i class="" data-index="45"></i><i class="lit" data-index="46"></i><i class="lit" data-index="47"></i><i class="lit" data-index="48"></i><i class="" data-index="49"></i><i class="" data-index="50"></i><i class="" data-index="51"></i><i class="lit" data-index="52"></i><i class="" data-index="53"></i><i class="lit" data-index="54"></i><i class="lit" data-index="55"></i><i class="lit" data-index="56"></i><i class="lit" data-index="57"></i><i class="lit" data-index="58"></i><i class="" data-index="59"></i><i class="lit" data-index="60"></i><i class="lit" data-index="61"></i><i class="lit" data-index="62"></i><i class="lit" data-index="63"></i></div>
+        <aside>
+          <span class="label">Control Surface Recipe</span>
+          <p>Generate a high-density compression dashboard with measured overflow, ledger rows, and disciplined red warning states.</p>
+          <div class="dial"><b style="transform:rotate(94deg)"></b></div>
+        </aside>
+      </section>
+    <footer class="footer">
+      <span>interface-panel / seed-compression-rite</span>
+      <span class="motifs"><span class="motif">calibration rail</span><span class="motif">ledger rows</span><span class="motif">registration dot</span></span>
+    </footer>
+  </main>
+</body>
+</html>

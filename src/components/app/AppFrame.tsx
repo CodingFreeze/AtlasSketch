@@ -30,9 +30,10 @@ function buildNav(board?: Board) {
     },
     {
       label: "Artifacts",
+      href: `${boardBase}/artifacts`,
       key: "artifacts",
       Icon: Archive,
-      planned: true
+      planned: false
     }
   ] as const;
 }
@@ -41,7 +42,7 @@ export function AppFrame({ activeSection = "boards", board, children }: AppFrame
   const nav = buildNav(board);
 
   return (
-    <div className="min-h-dvh bg-atlas-black text-atlas-paper">
+    <div className="min-h-dvh overflow-x-clip bg-atlas-black text-atlas-paper">
       <header className="sticky top-0 z-20 border-b border-atlas-line bg-atlas-black/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 lg:flex-row lg:items-center lg:justify-between lg:px-6">
           <Link
@@ -101,7 +102,7 @@ export function AppFrame({ activeSection = "boards", board, children }: AppFrame
           </nav>
         </div>
       </header>
-      <main className="mx-auto w-full max-w-7xl px-4 py-5 lg:px-6">{children}</main>
+      <main className="mx-auto w-full min-w-0 max-w-7xl px-4 py-5 lg:px-6">{children}</main>
     </div>
   );
 }
