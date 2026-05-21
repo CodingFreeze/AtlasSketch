@@ -1,0 +1,164 @@
+[
+  {
+    "id": "artifact-001",
+    "boardSlug": "ritual-interfaces",
+    "title": "Meridian Signal Console",
+    "family": "data-cartography",
+    "summary": "A coordinate-driven control panel with telemetry rails, focus ring, and compact route diagnostics.",
+    "seedId": "seed-signal-atlas",
+    "clusterIds": ["cluster-signal-cartography"],
+    "referenceIds": ["ref-001", "ref-002", "ref-003"],
+    "tags": ["signal", "cartography", "telemetry"],
+    "motifs": ["axis cross", "signal comb", "thin halo"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ],
+    "staticPaths": {
+      "html": "/demo/artifacts/artifact-001/index.html",
+      "preview": "/demo/artifacts/artifact-001/preview.svg",
+      "source": "/demo/artifacts/artifact-001/source.ts"
+    },
+    "lineage": {
+      "seed": "seed-signal-atlas",
+      "variant": "cartography-a",
+      "derivedFrom": ["ref-001", "ref-002", "ref-003"]
+    }
+  },
+  {
+    "id": "artifact-002",
+    "boardSlug": "ritual-interfaces",
+    "title": "Entropy Compression Desk",
+    "family": "compression-dashboard",
+    "summary": "A dense diagnostic dashboard with ledger rows, pressure meters, and one clipped warning channel.",
+    "seedId": "seed-compression-rite",
+    "clusterIds": ["cluster-compression-dashboards"],
+    "referenceIds": ["ref-004", "ref-005", "ref-006"],
+    "tags": ["compression", "dashboard", "diagnostics"],
+    "motifs": ["stacked meters", "ledger rows", "warning notch"],
+    "palette": [
+      { "name": "oxidized panel", "hex": "#0e120f" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "warning red", "hex": "#ff3d2e" }
+    ],
+    "staticPaths": {
+      "html": "/demo/artifacts/artifact-002/index.html",
+      "preview": "/demo/artifacts/artifact-002/preview.svg",
+      "source": "/demo/artifacts/artifact-002/source.ts"
+    },
+    "lineage": {
+      "seed": "seed-compression-rite",
+      "variant": "dashboard-a",
+      "derivedFrom": ["ref-004", "ref-005", "ref-006"]
+    }
+  },
+  {
+    "id": "artifact-003",
+    "boardSlug": "ritual-interfaces",
+    "title": "Glyph Matrix Litany",
+    "family": "glyph-matrix",
+    "summary": "A strict symbol grid with radial syntax interruptions and a restrained mutation accent.",
+    "seedId": "seed-glyph-litany",
+    "clusterIds": ["cluster-glyph-matrices"],
+    "referenceIds": ["ref-007", "ref-008", "ref-009"],
+    "tags": ["glyph", "matrix", "syntax"],
+    "motifs": ["glyph cells", "radial ticks", "registration dot"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "paper ghost", "hex": "#f4e8cd" },
+      { "name": "rare magenta", "hex": "#ff4fd8" }
+    ],
+    "staticPaths": {
+      "html": "/demo/artifacts/artifact-003/index.html",
+      "preview": "/demo/artifacts/artifact-003/preview.svg",
+      "source": "/demo/artifacts/artifact-003/source.ts"
+    },
+    "lineage": {
+      "seed": "seed-glyph-litany",
+      "variant": "glyph-a",
+      "derivedFrom": ["ref-007", "ref-008", "ref-009"]
+    }
+  },
+  {
+    "id": "artifact-004",
+    "boardSlug": "ritual-interfaces",
+    "title": "Archive Light Table",
+    "family": "sourcebook-light-table",
+    "summary": "A layered inspection surface with translucent panes, sourcebook edges, and cyan registration marks.",
+    "seedId": "seed-sourcebook-table",
+    "clusterIds": ["cluster-sourcebook-light-tables"],
+    "referenceIds": ["ref-010", "ref-011", "ref-012"],
+    "tags": ["sourcebook", "archive", "inspection"],
+    "motifs": ["paper edge", "faint ruling", "index notch"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "paper ghost", "hex": "#f4e8cd" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ],
+    "staticPaths": {
+      "html": "/demo/artifacts/artifact-004/index.html",
+      "preview": "/demo/artifacts/artifact-004/preview.svg",
+      "source": "/demo/artifacts/artifact-004/source.ts"
+    },
+    "lineage": {
+      "seed": "seed-sourcebook-table",
+      "variant": "light-table-a",
+      "derivedFrom": ["ref-010", "ref-011", "ref-012"]
+    }
+  },
+  {
+    "id": "artifact-005",
+    "boardSlug": "ritual-interfaces",
+    "title": "Ritual Routing Diagram",
+    "family": "ritual-diagram",
+    "summary": "A ceremony-like routing diagram that joins glyph syntax, signal paths, and board philosophy into one map.",
+    "seedId": "seed-signal-atlas",
+    "clusterIds": ["cluster-signal-cartography", "cluster-glyph-matrices"],
+    "referenceIds": ["ref-001", "ref-002", "ref-007", "ref-009"],
+    "tags": ["ritual", "signal", "glyph"],
+    "motifs": ["axis cross", "thin halo", "glyph cells"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "rare magenta", "hex": "#ff4fd8" }
+    ],
+    "staticPaths": {
+      "html": "/demo/artifacts/artifact-005/index.html",
+      "preview": "/demo/artifacts/artifact-005/preview.svg",
+      "source": "/demo/artifacts/artifact-005/source.ts"
+    },
+    "lineage": {
+      "seed": "seed-signal-atlas",
+      "variant": "ritual-crossfade-a",
+      "derivedFrom": ["ref-001", "ref-002", "ref-007", "ref-009"]
+    }
+  },
+  {
+    "id": "artifact-006",
+    "boardSlug": "ritual-interfaces",
+    "title": "Calibration Panel Study",
+    "family": "interface-panel",
+    "summary": "A compact lab panel that combines compression readouts, sourcebook inspection marks, and quiet calibration controls.",
+    "seedId": "seed-compression-rite",
+    "clusterIds": ["cluster-compression-dashboards", "cluster-sourcebook-light-tables"],
+    "referenceIds": ["ref-004", "ref-005", "ref-010", "ref-012"],
+    "tags": ["interface", "calibration", "compression", "inspection"],
+    "motifs": ["calibration rail", "ledger rows", "registration dot"],
+    "palette": [
+      { "name": "oxidized panel", "hex": "#0e120f" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ],
+    "staticPaths": {
+      "html": "/demo/artifacts/artifact-006/index.html",
+      "preview": "/demo/artifacts/artifact-006/preview.svg",
+      "source": "/demo/artifacts/artifact-006/source.ts"
+    },
+    "lineage": {
+      "seed": "seed-compression-rite",
+      "variant": "panel-hybrid-a",
+      "derivedFrom": ["ref-004", "ref-005", "ref-010", "ref-012"]
+    }
+  }
+]

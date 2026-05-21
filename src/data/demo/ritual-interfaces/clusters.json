@@ -1,0 +1,66 @@
+[
+  {
+    "id": "cluster-signal-cartography",
+    "boardSlug": "ritual-interfaces",
+    "label": "Signal Cartography",
+    "description": "Map-like control surfaces where coordinates, traces, and status marks turn navigation into instrumentation.",
+    "referenceIds": ["ref-001", "ref-002", "ref-003"],
+    "tags": ["signal", "cartography", "telemetry", "coordinates"],
+    "motifs": ["axis cross", "signal comb", "coordinate ticks", "thin halo"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ],
+    "suggestedSeedIds": ["seed-signal-atlas"],
+    "region": "northeast"
+  },
+  {
+    "id": "cluster-compression-dashboards",
+    "boardSlug": "ritual-interfaces",
+    "label": "Compression Dashboards",
+    "description": "Dense diagnostic panels with restrained meters, entropy ledgers, pressure ladders, and redline accents.",
+    "referenceIds": ["ref-004", "ref-005", "ref-006"],
+    "tags": ["compression", "dashboard", "diagnostics", "throughput"],
+    "motifs": ["stacked meters", "thermal ladder", "warning notch", "ledger rows"],
+    "palette": [
+      { "name": "oxidized panel", "hex": "#0e120f" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "warning red", "hex": "#ff3d2e" }
+    ],
+    "suggestedSeedIds": ["seed-compression-rite"],
+    "region": "southeast"
+  },
+  {
+    "id": "cluster-glyph-matrices",
+    "boardSlug": "ritual-interfaces",
+    "label": "Glyph Matrices",
+    "description": "Strict symbolic arrays and radial syntax wheels that treat glyphs as both language and interface state.",
+    "referenceIds": ["ref-007", "ref-008", "ref-009"],
+    "tags": ["glyph", "matrix", "syntax", "ritual"],
+    "motifs": ["glyph cells", "radial ticks", "registration dot", "thin halo"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "paper ghost", "hex": "#f4e8cd" },
+      { "name": "rare magenta", "hex": "#ff4fd8" }
+    ],
+    "suggestedSeedIds": ["seed-glyph-litany"],
+    "region": "west"
+  },
+  {
+    "id": "cluster-sourcebook-light-tables",
+    "boardSlug": "ritual-interfaces",
+    "label": "Sourcebook Light Tables",
+    "description": "Archive-inspired inspection surfaces built from translucent sheets, index marks, and quiet comparison grids.",
+    "referenceIds": ["ref-010", "ref-011", "ref-012"],
+    "tags": ["sourcebook", "archive", "light-table", "inspection"],
+    "motifs": ["paper edge", "faint ruling", "index notch", "registration dot"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "paper ghost", "hex": "#f4e8cd" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ],
+    "suggestedSeedIds": ["seed-sourcebook-table"],
+    "region": "northwest"
+  }
+]
