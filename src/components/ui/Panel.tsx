@@ -2,11 +2,14 @@ import type { HTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib/cn";
 
+type HeadingElement = "h2" | "h3" | "h4" | "h5" | "h6";
+
 type PanelProps = HTMLAttributes<HTMLElement> & {
   as?: "article" | "aside" | "section" | "div";
   eyebrow?: ReactNode;
   title?: ReactNode;
   actions?: ReactNode;
+  headingAs?: HeadingElement;
 };
 
 export function Panel({
@@ -16,6 +19,7 @@ export function Panel({
   eyebrow,
   title,
   actions,
+  headingAs: Heading = "h2",
   ...props
 }: PanelProps) {
   return (
@@ -35,9 +39,9 @@ export function Panel({
               </p>
             )}
             {title && (
-              <h2 className="mt-1 text-balance font-mono text-sm font-semibold uppercase tracking-[0.12em] text-atlas-paper">
+              <Heading className="mt-1 text-balance font-mono text-sm font-semibold uppercase tracking-[0.12em] text-atlas-paper">
                 {title}
-              </h2>
+              </Heading>
             )}
           </div>
           {actions && <div className="flex shrink-0 items-center gap-2">{actions}</div>}
