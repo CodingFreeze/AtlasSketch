@@ -1,5 +1,12 @@
 import type { PaletteColor, Seed } from "../types";
 
+const DEFAULT_PALETTE = [
+  { name: "charcoal field", hex: "#050706" },
+  { name: "terminal lime", hex: "#b8ff6a" },
+  { name: "inspection cyan", hex: "#62e6ff" },
+  { name: "warning red", hex: "#ff3d2e" },
+] satisfies PaletteColor[];
+
 export type Rng = {
   next: () => number;
   int: (min: number, max: number) => number;
@@ -34,7 +41,7 @@ export function createRng(seedKey: string): Rng {
 }
 
 export function escapeHtml(value: string): string {
-  return value
+  return sanitizeText(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -42,21 +49,53 @@ export function escapeHtml(value: string): string {
     .replaceAll("'", "&#39;");
 }
 
-export function palette(seed: Seed): PaletteColor[] {
-  if (seed.palette.length > 0) {
-    return seed.palette;
+function sanitizeText(value: string): string {
+  return value
+    .replace(/https?:\/\/\S+/gi, "[redacted]")
+    .replace(/\/demo\/placeholders\/\S*/gi, "[redacted]")
+    .replace(/<\/style/gi, "[redacted]")
+    .replace(/<script/gi, "[redacted]")
+    .replace(/\bonerror\b/gi, "[redacted]")
+    .replace(/url\s*\(/gi, "[redacted]")
+    .replace(/javascript\s*:/gi, "[redacted]");
+}
+
+export function sanitizeHexColor(value: string, fallback: string): string {
+  const trimmed = value.trim();
+  const fallbackColor = normalizeHexColor(fallback) ?? DEFAULT_PALETTE[0].hex;
+  return normalizeHexColor(trimmed) ?? fallbackColor;
+}
+
+function normalizeHexColor(value: string): string | undefined {
+  if (/^#[0-9a-f]{3}$/i.test(value)) {
+    const [, r, g, b] = value.toLowerCase();
+    return `#${r}${r}${g}${g}${b}${b}`;
   }
 
-  return [
-    { name: "charcoal field", hex: "#050706" },
-    { name: "terminal lime", hex: "#b8ff6a" },
-    { name: "inspection cyan", hex: "#62e6ff" },
-    { name: "warning red", hex: "#ff3d2e" },
-  ];
+  if (/^#[0-9a-f]{6}([0-9a-f]{2})?$/i.test(value)) {
+    return value.toLowerCase();
+  }
+
+  return undefined;
+}
+
+export function palette(seed: Seed): PaletteColor[] {
+  if (seed.palette.length > 0) {
+    return seed.palette.map((entry, index) => {
+      const fallback = DEFAULT_PALETTE[index % DEFAULT_PALETTE.length];
+
+      return {
+        name: entry.name,
+        hex: sanitizeHexColor(entry.hex, fallback.hex) as `#${string}`,
+      };
+    });
+  }
+
+  return DEFAULT_PALETTE;
 }
 
 export function color(seed: Seed, index: number, fallback: string): string {
-  return palette(seed)[index]?.hex ?? fallback;
+  return palette(seed)[index]?.hex ?? sanitizeHexColor(fallback, DEFAULT_PALETTE[0].hex);
 }
 
 export function artifactTitle(seed: Seed, variant: number, label: string): string {
@@ -178,12 +217,30 @@ export function renderShell({
       background: linear-gradient(135deg, rgba(244, 232, 205, 0.055), rgba(5, 7, 6, 0.84));
       box-shadow: inset 0 0 0 1px rgba(184, 255, 106, 0.05);
       overflow: hidden;
+      min-width: 0;
     }
     .label {
       color: var(--muted);
       font-size: 10px;
       letter-spacing: 0;
       text-transform: uppercase;
+    }
+    @media (max-width: 760px) {
+      .artifact { padding: 12px; }
+      .topline, .footer { align-items: stretch; flex-direction: column; }
+      .graph-grid, .dashboard, .diagram, .light-table, .panel {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        min-height: auto !important;
+      }
+      .meters, .readout, aside, nav, .status {
+        grid-column: auto !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+      }
+      .meters, .table-grid { grid-template-columns: 1fr !important; }
+      svg { min-height: 340px !important; }
+      table { display: block; overflow-x: auto; }
     }
     ${extraCss}
   </style>
