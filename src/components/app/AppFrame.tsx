@@ -20,7 +20,7 @@ function buildNav(board?: Board) {
   return [
     { label: "Boards", href: boardBase, key: "boards", Icon: CircuitBoard, planned: false },
     { label: "Library", href: `${boardBase}/library`, key: "library", Icon: Library, planned: false },
-    { label: "Atlas", key: "atlas", Icon: Network, planned: true },
+    { label: "Atlas", href: `${boardBase}/atlas`, key: "atlas", Icon: Network, planned: false },
     {
       label: "Workbench",
       key: "workbench",

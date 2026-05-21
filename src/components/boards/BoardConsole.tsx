@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Layers, RadioTower } from "lucide-react";
+import { ArrowRight, Layers, Network, RadioTower } from "lucide-react";
 
 import { DnaStrip } from "@/components/dna/DnaStrip";
 import { Chip } from "@/components/ui/Chip";
@@ -79,7 +79,7 @@ export function BoardConsole({ boards, datasets }: BoardConsoleProps) {
                   tags={[...board.topTags, ...board.motifMarks]}
                   palette={board.palette.map((color) => color.hex)}
                 />
-                <div className="grid gap-2 border-t border-atlas-line pt-3 sm:grid-cols-2">
+                <div className="grid gap-2 border-t border-atlas-line pt-3 sm:grid-cols-3">
                   <Link
                     className="inline-flex h-10 items-center justify-center gap-2 border border-atlas-lime bg-atlas-lime/10 px-3 font-mono text-xs font-medium uppercase tracking-[0.14em] text-atlas-lime transition-colors hover:bg-atlas-lime/15"
                     href={`/boards/${board.slug}`}
@@ -94,6 +94,13 @@ export function BoardConsole({ boards, datasets }: BoardConsoleProps) {
                   >
                     <RadioTower aria-hidden="true" size={15} />
                     Reference library
+                  </Link>
+                  <Link
+                    className="inline-flex h-10 items-center justify-center gap-2 border border-atlas-line bg-atlas-panel px-3 font-mono text-xs font-medium uppercase tracking-[0.14em] text-atlas-muted transition-colors hover:border-atlas-cyan hover:text-atlas-cyan"
+                    href={`/boards/${board.slug}/atlas`}
+                  >
+                    <Network aria-hidden="true" size={15} />
+                    Atlas graph
                   </Link>
                 </div>
               </div>

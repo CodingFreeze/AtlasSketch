@@ -77,8 +77,22 @@ export default async function BoardPage({ params }: BoardPageProps) {
               Reference cards, tags, motifs, and clusters.
             </span>
           </Link>
+          <Link
+            className="group grid gap-2 border border-atlas-line bg-atlas-panel/80 p-4 transition-colors hover:border-atlas-cyan hover:text-atlas-cyan"
+            href={`/boards/${board.slug}/atlas`}
+          >
+            <span className="flex items-center justify-between gap-3 font-mono text-xs font-semibold uppercase tracking-[0.16em]">
+              <span className="inline-flex items-center gap-2">
+                <Network aria-hidden="true" size={16} />
+                Atlas
+              </span>
+              <ArrowRight aria-hidden="true" size={15} />
+            </span>
+            <span className="text-sm leading-6 text-atlas-muted group-hover:text-atlas-paper/78">
+              Spatial graph of references, motifs, clusters, and shared signals.
+            </span>
+          </Link>
           {[
-            { label: "Atlas", detail: "Spatial graph arrives in the next task.", Icon: Network },
             {
               label: "Workbench",
               detail: "Deterministic seed controls arrive later.",
