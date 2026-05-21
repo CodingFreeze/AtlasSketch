@@ -7,8 +7,15 @@ type DnaStripProps = {
   className?: string;
 };
 
+function normalizeDensity(density: number) {
+  const percentage = density <= 1 ? density * 100 : density;
+
+  return Math.max(0, Math.min(100, percentage));
+}
+
 export function DnaStrip({ tags, palette, density = 0.5, className }: DnaStripProps) {
-  const signal = Math.max(8, Math.min(100, density * 100));
+  const signal = normalizeDensity(density);
+  const signalWidth = Math.max(8, signal);
   const visibleTags = tags.slice(0, 4);
   const visiblePalette = palette.slice(0, 5);
   const densityLabel = `Signal density ${Math.round(signal)} percent`;
@@ -42,7 +49,7 @@ export function DnaStrip({ tags, palette, density = 0.5, className }: DnaStripPr
         className="h-3 w-16 shrink-0 border border-atlas-line"
         role="progressbar"
       >
-        <div className="h-full bg-atlas-lime" style={{ width: `${signal}%` }} />
+        <div className="h-full bg-atlas-lime" style={{ width: `${signalWidth}%` }} />
       </div>
       <div className="flex min-w-0 gap-1 overflow-hidden">
         {visibleTags.map((tag) => (
