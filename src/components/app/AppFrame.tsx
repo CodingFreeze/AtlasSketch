@@ -23,9 +23,10 @@ function buildNav(board?: Board) {
     { label: "Atlas", href: `${boardBase}/atlas`, key: "atlas", Icon: Network, planned: false },
     {
       label: "Workbench",
+      href: `${boardBase}/workbench`,
       key: "workbench",
       Icon: FlaskConical,
-      planned: true
+      planned: false
     },
     {
       label: "Artifacts",

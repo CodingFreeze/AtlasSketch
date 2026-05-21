@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 
 import { AppFrame } from "@/components/app/AppFrame";
 import { AtlasGraph } from "@/components/atlas/AtlasGraph";
-import { Chip } from "@/components/ui/Chip";
 import { Panel } from "@/components/ui/Panel";
 import { Stat } from "@/components/ui/Stat";
 import { getBoardDataset, listBoards } from "@/domain/demoData";
@@ -36,7 +37,15 @@ export default async function AtlasPage({ params }: AtlasPageProps) {
         <Panel
           eyebrow="Atlas"
           title={`${board.title} graph`}
-          actions={<Chip tone="lime">Static SVG</Chip>}
+          actions={
+            <Link
+              className="inline-flex h-8 items-center gap-2 rounded border border-atlas-line bg-atlas-panel px-3 font-mono text-xs font-medium uppercase tracking-[0.12em] text-atlas-muted transition-colors hover:border-atlas-cyan hover:text-atlas-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-cyan"
+              href={`/boards/${board.slug}/workbench`}
+            >
+              Workbench
+              <ArrowRight aria-hidden="true" size={13} />
+            </Link>
+          }
         >
           <div className="grid gap-3 md:grid-cols-4">
             <Stat label="Nodes" value={atlas.nodes.length} tone="lime" />
