@@ -5,6 +5,8 @@
 :root {
   --font-atlas-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-atlas-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --atlas-grid-line: rgba(184, 255, 106, 0.055);
+  --atlas-grid-cross: rgba(98, 230, 255, 0.035);
   color-scheme: dark;
 }
 
@@ -22,6 +24,59 @@ body {
   color: #f4e8cd;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  background-color: #050706;
+  background-image:
+    linear-gradient(var(--atlas-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--atlas-grid-line) 1px, transparent 1px),
+    linear-gradient(var(--atlas-grid-cross) 1px, transparent 1px),
+    linear-gradient(90deg, var(--atlas-grid-cross) 1px, transparent 1px);
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+  background-size:
+    32px 32px,
+    32px 32px,
+    128px 128px,
+    128px 128px;
   font-family: var(--font-atlas-sans);
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: rgba(184, 255, 106, 0.28);
+  color: #f4e8cd;
+}
+
+:focus-visible {
+  outline: 2px solid #62e6ff;
+  outline-offset: 3px;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
