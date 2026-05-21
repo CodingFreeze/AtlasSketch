@@ -1,8 +1,15 @@
-import { artifactTitle, createRng, escapeHtml, renderShell } from "./shared";
+import {
+  artifactTitle,
+  createRng,
+  escapeHtml,
+  renderShell,
+  safeNumber,
+} from "./shared";
 import type { ArtifactRenderer } from "./types";
 
 export const sourcebookLightTableRenderer: ArtifactRenderer = (seed, variant) => {
   const rng = createRng(`${seed.id}:sourcebook-light-table:${variant}`);
+  const safeVariant = safeNumber(variant, 0, 0, 999);
   const title = artifactTitle(seed, variant, "Sourcebook Light Table");
   const cards = Array.from({ length: 6 }, (_, index) => {
     const tag = seed.tags[index % seed.tags.length] ?? "archive";
@@ -29,9 +36,9 @@ export const sourcebookLightTableRenderer: ArtifactRenderer = (seed, variant) =>
           <span class="label">Archive Comparison Channel</span>
           <p>${escapeHtml(seed.prompt)}</p>
           <dl>
-            <div><dt>Palette adherence</dt><dd>${seed.parameters.paletteAdherence}%</dd></div>
-            <div><dt>Grid intensity</dt><dd>${seed.parameters.gridIntensity}%</dd></div>
-            <div><dt>Variant offset</dt><dd>${variant}</dd></div>
+            <div><dt>Palette adherence</dt><dd>${safeNumber(seed.parameters.paletteAdherence, 50, 0, 100)}%</dd></div>
+            <div><dt>Grid intensity</dt><dd>${safeNumber(seed.parameters.gridIntensity, 50, 0, 100)}%</dd></div>
+            <div><dt>Variant offset</dt><dd>${safeVariant}</dd></div>
           </dl>
         </aside>
       </section>`,

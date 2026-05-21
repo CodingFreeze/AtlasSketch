@@ -1,8 +1,15 @@
-import { artifactTitle, createRng, escapeHtml, renderShell } from "./shared";
+import {
+  artifactTitle,
+  createRng,
+  escapeHtml,
+  renderShell,
+  safeNumber,
+} from "./shared";
 import type { ArtifactRenderer } from "./types";
 
 export const ritualDiagramRenderer: ArtifactRenderer = (seed, variant) => {
   const rng = createRng(`${seed.id}:ritual-diagram:${variant}`);
+  const safeVariant = safeNumber(variant, 0, 0, 999);
   const title = artifactTitle(seed, variant, "Ritual Diagram");
   const rings = Array.from({ length: 5 }, (_, index) => {
     const radius = 16 + index * 8 + rng.int(0, 3);
@@ -31,7 +38,7 @@ export const ritualDiagramRenderer: ArtifactRenderer = (seed, variant) => {
           <g class="rings">${rings}</g>
           <g class="spokes">${spokes}</g>
           <polygon class="core" points="50,24 73,50 50,76 27,50" />
-          <circle class="dot" cx="50" cy="50" r="${5 + (variant % 4)}" />
+          <circle class="dot" cx="50" cy="50" r="${5 + (safeVariant % 4)}" />
         </svg>
         <aside>
           <span class="label">Syntax Litany</span>
