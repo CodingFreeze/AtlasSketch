@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glyph Matrix Litany / Glyph Matrix v03</title>
+  <style>
+    :root {
+      --bg: #050706;
+      --panel: color-mix(in srgb, #050706 78%, #111814 22%);
+      --panel-strong: color-mix(in srgb, #050706 62%, #19231d 38%);
+      --text: #f4e8cd;
+      --muted: rgba(244, 232, 205, 0.64);
+      --line: rgba(244, 232, 205, 0.16);
+      --primary: #f4e8cd;
+      --secondary: #ff4fd8;
+      --warning: #ff3d2e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(184, 255, 106, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(98, 230, 255, 0.04) 1px, transparent 1px),
+        radial-gradient(circle at 72% 18%, rgba(98, 230, 255, 0.08), transparent 30%),
+        var(--bg);
+      background-size: 28px 28px, 28px 28px, auto, auto;
+      font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      letter-spacing: 0;
+    }
+    .artifact {
+      min-height: 100vh;
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+      grid-template-rows: auto 1fr auto;
+    }
+    .topline, .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid var(--line);
+      background: rgba(5, 7, 6, 0.72);
+      padding: 12px 14px;
+      border-radius: 6px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(20px, 3vw, 38px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .meta, .footer {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .dna, .motifs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag, .motif {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: rgba(244, 232, 205, 0.04);
+    }
+    .tag { color: var(--primary); }
+    .motif { color: var(--secondary); }
+    .frame {
+      border: 1px solid rgba(244, 232, 205, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(244, 232, 205, 0.055), rgba(5, 7, 6, 0.84));
+      box-shadow: inset 0 0 0 1px rgba(184, 255, 106, 0.05);
+      overflow: hidden;
+      min-width: 0;
+    }
+    .label {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    @media (max-width: 760px) {
+      .artifact { padding: 12px; }
+      .topline, .footer { align-items: stretch; flex-direction: column; }
+      .graph-grid, .dashboard, .diagram, .light-table, .panel {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        min-height: auto !important;
+      }
+      .meters, .readout, aside, nav, .status {
+        grid-column: auto !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+      }
+      .meters, .table-grid { grid-template-columns: 1fr !important; }
+      svg { min-height: 340px !important; }
+      table { display: block; overflow-x: auto; }
+    }
+    
+        .glyph-panel { display:grid; grid-template-columns:1fr 300px; min-height:520px; }
+        .matrix { padding:20px; display:grid; grid-template-columns:repeat(12, minmax(24px, 1fr)); gap:7px; align-content:center; }
+        .matrix span { aspect-ratio:1; border:1px solid var(--line); background:rgba(244,232,205,.035); color:var(--muted); display:grid; place-items:center; position:relative; overflow:hidden; }
+        .matrix span.active { color:var(--text); border-color:rgba(244,232,205,.28); background:rgba(244,232,205,.07); }
+        .matrix span.rare { color:var(--warning); border-color:var(--warning); box-shadow:0 0 18px rgba(255,79,216,.12); }
+        .matrix b { font-size:13px; font-weight:600; }
+        .matrix i { position:absolute; right:3px; bottom:2px; color:rgba(244,232,205,.34); font-size:7px; font-style:normal; }
+        aside { border-left:1px solid var(--line); padding:18px; display:grid; align-content:center; gap:16px; }
+        svg { width:100%; min-height:220px; }
+        svg line { stroke:var(--secondary); stroke-width:.55; opacity:.68; }
+        svg circle { fill:none; stroke:var(--primary); stroke-width:.45; stroke-dasharray:2 2; }
+        svg .core { fill:rgba(255,79,216,.12); stroke:var(--warning); stroke-dasharray:none; }
+        ol { list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+        li { display:flex; justify-content:space-between; gap:14px; border-bottom:1px solid var(--line); padding-bottom:8px; color:var(--muted); text-transform:uppercase; font-size:11px; }
+        li b { color:var(--primary); font-weight:500; }
+      
+  </style>
+</head>
+<body>
+  <main class="artifact glyph-matrix">
+    <header class="topline">
+      <div>
+        <div class="meta">AtlasSketch deterministic artifact / variant 3</div>
+        <h1>Glyph Matrix Litany / Glyph Matrix v03</h1>
+      </div>
+      <div class="dna"><span class="tag">glyph</span><span class="tag">matrix</span><span class="tag">syntax</span></div>
+    </header>
+    <section class="frame glyph-panel">
+        <div class="matrix"><span class="active rare"><b>--</b><i>00</i></span><span class=" "><b>+</b><i>01</i></span><span class="active "><b>+</b><i>02</i></span><span class="active "><b>::</b><i>03</i></span><span class="active "><b>#</b><i>04</i></span><span class=" "><b>&lt;&gt;</b><i>05</i></span><span class=" "><b>&lt;&gt;</b><i>06</i></span><span class="active "><b>&lt;&gt;</b><i>07</i></span><span class="active "><b>&lt;&gt;</b><i>08</i></span><span class="active "><b>--</b><i>09</i></span><span class=" "><b>+</b><i>10</i></span><span class="active rare"><b>x</b><i>11</i></span><span class="active "><b>::</b><i>12</i></span><span class="active "><b>[]</b><i>13</i></span><span class=" "><b>::</b><i>14</i></span><span class="active "><b>o</b><i>15</i></span><span class="active "><b>--</b><i>16</i></span><span class=" "><b>||</b><i>17</i></span><span class="active "><b>x</b><i>18</i></span><span class="active "><b>/\</b><i>19</i></span><span class="active "><b>o</b><i>20</i></span><span class=" "><b>+</b><i>21</i></span><span class="active rare"><b>o</b><i>22</i></span><span class="active "><b>::</b><i>23</i></span><span class="active "><b>::</b><i>24</i></span><span class="active "><b>#</b><i>25</i></span><span class="active "><b>#</b><i>26</i></span><span class=" "><b>--</b><i>27</i></span><span class="active "><b>::</b><i>28</i></span><span class="active "><b>o</b><i>29</i></span><span class="active "><b>--</b><i>30</i></span><span class="active "><b>o</b><i>31</i></span><span class="active "><b>+</b><i>32</i></span><span class="active rare"><b>+</b><i>33</i></span><span class=" "><b>||</b><i>34</i></span><span class=" "><b>[]</b><i>35</i></span><span class=" "><b>::</b><i>36</i></span><span class="active "><b>[]</b><i>37</i></span><span class="active "><b>#</b><i>38</i></span><span class="active "><b>#</b><i>39</i></span><span class=" "><b>o</b><i>40</i></span><span class="active "><b>o</b><i>41</i></span><span class="active "><b>[]</b><i>42</i></span><span class="active "><b>::</b><i>43</i></span><span class=" rare"><b>x</b><i>44</i></span><span class="active "><b>+</b><i>45</i></span><span class="active "><b>--</b><i>46</i></span><span class="active "><b>&lt;&gt;</b><i>47</i></span><span class=" "><b>::</b><i>48</i></span><span class=" "><b>||</b><i>49</i></span><span class="active "><b>o</b><i>50</i></span><span class="active "><b>&lt;&gt;</b><i>51</i></span><span class=" "><b>#</b><i>52</i></span><span class="active "><b>&lt;&gt;</b><i>53</i></span><span class="active "><b>||</b><i>54</i></span><span class="active rare"><b>x</b><i>55</i></span><span class="active "><b>/\</b><i>56</i></span><span class="active "><b>[]</b><i>57</i></span><span class=" "><b>x</b><i>58</i></span><span class="active "><b>[]</b><i>59</i></span><span class="active "><b>#</b><i>60</i></span><span class=" "><b>x</b><i>61</i></span><span class=" "><b>/\</b><i>62</i></span><span class=" "><b>#</b><i>63</i></span><span class="active "><b>o</b><i>64</i></span><span class=" "><b>::</b><i>65</i></span><span class="active rare"><b>--</b><i>66</i></span><span class=" "><b>#</b><i>67</i></span><span class=" "><b>x</b><i>68</i></span><span class="active "><b>x</b><i>69</i></span><span class=" "><b>x</b><i>70</i></span><span class="active "><b>--</b><i>71</i></span><span class="active "><b>#</b><i>72</i></span><span class="active "><b>#</b><i>73</i></span><span class=" "><b>x</b><i>74</i></span><span class="active "><b>--</b><i>75</i></span><span class=" "><b>x</b><i>76</i></span><span class=" rare"><b>+</b><i>77</i></span><span class=" "><b>&lt;&gt;</b><i>78</i></span><span class="active "><b>#</b><i>79</i></span><span class="active "><b>::</b><i>80</i></span><span class="active "><b>#</b><i>81</i></span><span class=" "><b>+</b><i>82</i></span><span class=" "><b>--</b><i>83</i></span><span class=" "><b>+</b><i>84</i></span><span class="active "><b>--</b><i>85</i></span><span class="active "><b>x</b><i>86</i></span><span class="active "><b>--</b><i>87</i></span><span class="active rare"><b>o</b><i>88</i></span><span class="active "><b>+</b><i>89</i></span><span class="active "><b>[]</b><i>90</i></span><span class="active "><b>[]</b><i>91</i></span><span class=" "><b>--</b><i>92</i></span><span class=" "><b>x</b><i>93</i></span><span class="active "><b>::</b><i>94</i></span><span class="active "><b>o</b><i>95</i></span></div>
+        <aside>
+          <span class="label">Syntax Interruptions</span>
+          <svg viewBox="0 0 100 100" role="img" aria-label="Glyph Matrix Litany / Glyph Matrix v03 radial syntax ticks">
+            <g><line x1="50" y1="9" x2="50" y2="17" transform="rotate(-3 50 50)" /><line x1="50" y1="9" x2="50" y2="16" transform="rotate(14 50 50)" /><line x1="50" y1="9" x2="50" y2="16" transform="rotate(29 50 50)" /><line x1="50" y1="9" x2="50" y2="20" transform="rotate(47 50 50)" /><line x1="50" y1="9" x2="50" y2="14" transform="rotate(60 50 50)" /><line x1="50" y1="9" x2="50" y2="14" transform="rotate(74 50 50)" /><line x1="50" y1="9" x2="50" y2="14" transform="rotate(93 50 50)" /><line x1="50" y1="9" x2="50" y2="13" transform="rotate(107 50 50)" /><line x1="50" y1="9" x2="50" y2="17" transform="rotate(122 50 50)" /><line x1="50" y1="9" x2="50" y2="13" transform="rotate(132 50 50)" /><line x1="50" y1="9" x2="50" y2="13" transform="rotate(147 50 50)" /><line x1="50" y1="9" x2="50" y2="18" transform="rotate(162 50 50)" /><line x1="50" y1="9" x2="50" y2="19" transform="rotate(180 50 50)" /><line x1="50" y1="9" x2="50" y2="15" transform="rotate(195 50 50)" /><line x1="50" y1="9" x2="50" y2="14" transform="rotate(207 50 50)" /><line x1="50" y1="9" x2="50" y2="16" transform="rotate(228 50 50)" /><line x1="50" y1="9" x2="50" y2="16" transform="rotate(237 50 50)" /><line x1="50" y1="9" x2="50" y2="13" transform="rotate(256 50 50)" /><line x1="50" y1="9" x2="50" y2="13" transform="rotate(270 50 50)" /><line x1="50" y1="9" x2="50" y2="14" transform="rotate(282 50 50)" /><line x1="50" y1="9" x2="50" y2="13" transform="rotate(297 50 50)" /><line x1="50" y1="9" x2="50" y2="14" transform="rotate(318 50 50)" /><line x1="50" y1="9" x2="50" y2="16" transform="rotate(328 50 50)" /><line x1="50" y1="9" x2="50" y2="13" transform="rotate(343 50 50)" /></g>
+            <circle cx="50" cy="50" r="28" />
+            <circle class="core" cx="50" cy="50" r="10" />
+          </svg>
+          <ol><li><span>glyph cells</span><b>36%</b></li><li><span>radial ticks</span><b>90%</b></li><li><span>registration dot</span><b>38%</b></li><li><span>glyph</span><b>82%</b></li><li><span>matrix</span><b>32%</b></li><li><span>syntax</span><b>88%</b></li></ol>
+        </aside>
+      </section>
+    <footer class="footer">
+      <span>glyph-matrix / seed-glyph-litany</span>
+      <span class="motifs"><span class="motif">glyph cells</span><span class="motif">radial ticks</span><span class="motif">registration dot</span></span>
+    </footer>
+  </main>
+</body>
+</html>

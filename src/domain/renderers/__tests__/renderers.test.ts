@@ -9,6 +9,8 @@ const families = [
   "ritual-diagram",
   "sourcebook-light-table",
   "interface-panel",
+  "data-cartography",
+  "glyph-matrix",
 ] satisfies ArtifactFamily[];
 
 const maliciousMarker = "MALICIOUS_RAW_MARKER";
@@ -127,7 +129,7 @@ describe("artifact renderers", () => {
   });
 
   it("falls back to a supported renderer for future families", () => {
-    const seed = makeSeed("glyph-matrix");
+    const seed = makeSeed("mutation-board");
     const artifact = renderArtifact(seed, 1);
 
     expect(artifact.family).toBe("interface-panel");

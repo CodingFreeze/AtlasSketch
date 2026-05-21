@@ -1,4 +1,6 @@
 import { compressionDashboardRenderer } from "./compressionDashboard";
+import { dataCartographyRenderer } from "./dataCartography";
+import { glyphMatrixRenderer } from "./glyphMatrix";
 import { interfacePanelRenderer } from "./interfacePanel";
 import { ritualDiagramRenderer } from "./ritualDiagram";
 import { signalGraphRenderer } from "./signalGraph";
@@ -12,6 +14,8 @@ export const renderers: Partial<Record<ArtifactFamily, ArtifactRenderer>> = {
   "ritual-diagram": ritualDiagramRenderer,
   "sourcebook-light-table": sourcebookLightTableRenderer,
   "interface-panel": interfacePanelRenderer,
+  "data-cartography": dataCartographyRenderer,
+  "glyph-matrix": glyphMatrixRenderer,
 };
 
 export function renderArtifact(seed: Seed, variant: number): RenderedArtifact {

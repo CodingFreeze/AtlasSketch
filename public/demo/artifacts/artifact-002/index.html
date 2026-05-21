@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entropy Compression Desk / Compression Dashboard v02</title>
+  <style>
+    :root {
+      --bg: #0e120f;
+      --panel: color-mix(in srgb, #0e120f 78%, #111814 22%);
+      --panel-strong: color-mix(in srgb, #0e120f 62%, #19231d 38%);
+      --text: #f4e8cd;
+      --muted: rgba(244, 232, 205, 0.64);
+      --line: rgba(244, 232, 205, 0.16);
+      --primary: #b8ff6a;
+      --secondary: #ff3d2e;
+      --warning: #ff3d2e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(184, 255, 106, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(98, 230, 255, 0.04) 1px, transparent 1px),
+        radial-gradient(circle at 72% 18%, rgba(98, 230, 255, 0.08), transparent 30%),
+        var(--bg);
+      background-size: 28px 28px, 28px 28px, auto, auto;
+      font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      letter-spacing: 0;
+    }
+    .artifact {
+      min-height: 100vh;
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+      grid-template-rows: auto 1fr auto;
+    }
+    .topline, .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid var(--line);
+      background: rgba(5, 7, 6, 0.72);
+      padding: 12px 14px;
+      border-radius: 6px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(20px, 3vw, 38px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .meta, .footer {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .dna, .motifs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag, .motif {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: rgba(244, 232, 205, 0.04);
+    }
+    .tag { color: var(--primary); }
+    .motif { color: var(--secondary); }
+    .frame {
+      border: 1px solid rgba(244, 232, 205, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(244, 232, 205, 0.055), rgba(5, 7, 6, 0.84));
+      box-shadow: inset 0 0 0 1px rgba(184, 255, 106, 0.05);
+      overflow: hidden;
+      min-width: 0;
+    }
+    .label {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    @media (max-width: 760px) {
+      .artifact { padding: 12px; }
+      .topline, .footer { align-items: stretch; flex-direction: column; }
+      .graph-grid, .dashboard, .diagram, .light-table, .panel {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        min-height: auto !important;
+      }
+      .meters, .readout, aside, nav, .status {
+        grid-column: auto !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+      }
+      .meters, .table-grid { grid-template-columns: 1fr !important; }
+      svg { min-height: 340px !important; }
+      table { display: block; overflow-x: auto; }
+    }
+    
+        .dashboard { display:grid; grid-template-columns: 1fr 280px; grid-template-rows:auto 1fr; min-height:520px; }
+        .meters { grid-column:1 / 3; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; padding:16px; border-bottom:1px solid var(--line); }
+        .meter { display:grid; grid-template-columns:1fr 3fr 34px; gap:8px; align-items:center; font-size:10px; color:var(--muted); text-transform:uppercase; }
+        .meter b { height:11px; border:1px solid var(--line); background:linear-gradient(90deg, var(--primary), var(--warning)); }
+        .meter em { font-style:normal; color:var(--text); text-align:right; }
+        .status { padding:16px; border-left:1px solid var(--line); display:grid; align-content:start; gap:16px; }
+        .block { margin-top:16px; display:grid; grid-template-columns:repeat(6, 1fr); gap:6px; }
+        .block i { aspect-ratio:1; border:1px solid var(--line); background:var(--warning); }
+        .recipe { border-top:1px solid var(--line); padding-top:14px; }
+        .recipe p { margin:8px 0 0; color:var(--text); font-size:12px; line-height:1.5; }
+        table { width:100%; border-collapse:collapse; align-self:start; }
+        th, td { padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; font-size:11px; }
+        th { color:var(--primary); text-transform:uppercase; }
+        td { color:var(--muted); }
+      
+  </style>
+</head>
+<body>
+  <main class="artifact compression-dashboard">
+    <header class="topline">
+      <div>
+        <div class="meta">AtlasSketch deterministic artifact / variant 2</div>
+        <h1>Entropy Compression Desk / Compression Dashboard v02</h1>
+      </div>
+      <div class="dna"><span class="tag">compression</span><span class="tag">dashboard</span><span class="tag">diagnostics</span></div>
+    </header>
+    <section class="frame dashboard">
+        <div class="meters"><div class="meter"><span>density</span><b style="width:80%"></b><em>80</em></div><div class="meter"><span>mutation</span><b style="width:4%"></b><em>04</em></div><div class="meter"><span>motion</span><b style="width:20%"></b><em>20</em></div><div class="meter"><span>gridIntensity</span><b style="width:73%"></b><em>73</em></div><div class="meter"><span>signalNoise</span><b style="width:29%"></b><em>29</em></div><div class="meter"><span>paletteAdherence</span><b style="width:90%"></b><em>90</em></div></div>
+        <div class="status">
+          <span class="label">Compression Field</span>
+          <div class="block"><i style="opacity:0.35173705642111597"></i><i style="opacity:0.9968848164379597"></i><i style="opacity:0.6856436024047434"></i><i style="opacity:0.6011942453403025"></i><i style="opacity:0.44348981641232965"></i><i style="opacity:0.8991040055174381"></i><i style="opacity:0.9127989633288235"></i><i style="opacity:0.7710129982326179"></i><i style="opacity:0.617301873639226"></i><i style="opacity:0.6689037520997226"></i><i style="opacity:0.7966188651230186"></i><i style="opacity:0.3275200763065368"></i><i style="opacity:0.9717066625785082"></i><i style="opacity:0.8499883990176023"></i><i style="opacity:0.6153248966857792"></i><i style="opacity:0.5738588914088905"></i><i style="opacity:0.859932003300637"></i><i style="opacity:0.6113058494776487"></i><i style="opacity:0.9416155244782567"></i><i style="opacity:0.7919113919325173"></i><i style="opacity:0.3722299669496715"></i><i style="opacity:0.5412241611629725"></i><i style="opacity:0.9154915249254555"></i><i style="opacity:0.6143212595861405"></i><i style="opacity:0.46343171283602713"></i><i style="opacity:0.8061058117449283"></i><i style="opacity:0.634913074914366"></i><i style="opacity:0.31886975502595305"></i><i style="opacity:0.6843914066068828"></i><i style="opacity:0.3468808923009783"></i><i style="opacity:0.5726543300133198"></i><i style="opacity:0.8634429214335978"></i><i style="opacity:0.8479594737663865"></i><i style="opacity:0.8960591377969831"></i><i style="opacity:0.3378800478577614"></i><i style="opacity:0.3715235618315637"></i><i style="opacity:0.7344704888109117"></i><i style="opacity:0.6989853116497398"></i><i style="opacity:0.4143356403429061"></i><i style="opacity:0.9133050211891532"></i><i style="opacity:0.293242893749848"></i><i style="opacity:0.5075842265598476"></i><i style="opacity:0.731135337986052"></i><i style="opacity:0.9295717589557171"></i><i style="opacity:0.29144475527107716"></i><i style="opacity:0.7899642804637551"></i><i style="opacity:0.6494238857552409"></i><i style="opacity:0.5127053272817284"></i></div>
+          <div class="recipe">
+            <span class="label">Seed Recipe</span>
+            <p>Generate a high-density compression dashboard with measured overflow, ledger rows, and disciplined red warning states.</p>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>Index</th><th>Signal</th><th>Motif</th><th>Load</th></tr></thead>
+          <tbody><tr><td>02-01</td><td>compression</td><td>stacked meters</td><td>77%</td></tr><tr><td>02-02</td><td>dashboard</td><td>ledger rows</td><td>64%</td></tr><tr><td>02-03</td><td>diagnostics</td><td>warning notch</td><td>84%</td></tr><tr><td>02-04</td><td>compression</td><td>stacked meters</td><td>64%</td></tr><tr><td>02-05</td><td>dashboard</td><td>ledger rows</td><td>70%</td></tr><tr><td>02-06</td><td>diagnostics</td><td>warning notch</td><td>67%</td></tr><tr><td>02-07</td><td>compression</td><td>stacked meters</td><td>81%</td></tr><tr><td>02-08</td><td>dashboard</td><td>ledger rows</td><td>71%</td></tr><tr><td>02-09</td><td>diagnostics</td><td>warning notch</td><td>81%</td></tr><tr><td>02-10</td><td>compression</td><td>stacked meters</td><td>60%</td></tr><tr><td>02-11</td><td>dashboard</td><td>ledger rows</td><td>69%</td></tr></tbody>
+        </table>
+      </section>
+    <footer class="footer">
+      <span>compression-dashboard / seed-compression-rite</span>
+      <span class="motifs"><span class="motif">stacked meters</span><span class="motif">ledger rows</span><span class="motif">warning notch</span></span>
+    </footer>
+  </main>
+</body>
+</html>

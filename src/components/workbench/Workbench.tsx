@@ -14,8 +14,10 @@ import type { ArtifactFamily, Cluster, Seed } from "@/domain/types";
 import { cn } from "@/lib/cn";
 
 const FAMILIES = [
+  "data-cartography",
   "signal-graph",
   "compression-dashboard",
+  "glyph-matrix",
   "ritual-diagram",
   "sourcebook-light-table",
   "interface-panel",
@@ -127,7 +129,7 @@ export function Workbench({ boardSlug, clusters, seeds }: WorkbenchProps) {
               Seed
             </span>
             <select
-              className="h-10 rounded border border-atlas-line bg-atlas-black px-3 font-mono text-xs uppercase tracking-[0.08em] text-atlas-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-atlas-cyan"
+              className="h-10 w-full min-w-0 rounded border border-atlas-line bg-atlas-black px-3 font-mono text-xs uppercase tracking-[0.08em] text-atlas-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-atlas-cyan"
               onChange={(event) => {
                 const nextSeed = seeds.find((seed) => seed.id === event.target.value) ?? selectedSeed;
                 setSelectedSeedId(nextSeed.id);
@@ -148,7 +150,7 @@ export function Workbench({ boardSlug, clusters, seeds }: WorkbenchProps) {
               Artifact family
             </span>
             <select
-              className="h-10 rounded border border-atlas-line bg-atlas-black px-3 font-mono text-xs uppercase tracking-[0.08em] text-atlas-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-atlas-cyan"
+              className="h-10 w-full min-w-0 rounded border border-atlas-line bg-atlas-black px-3 font-mono text-xs uppercase tracking-[0.08em] text-atlas-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-atlas-cyan"
               onChange={(event) =>
                 setControls((current) => ({
                   ...current,

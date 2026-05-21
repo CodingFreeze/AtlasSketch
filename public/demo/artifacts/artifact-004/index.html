@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Archive Light Table / Sourcebook Light Table v04</title>
+  <style>
+    :root {
+      --bg: #050706;
+      --panel: color-mix(in srgb, #050706 78%, #111814 22%);
+      --panel-strong: color-mix(in srgb, #050706 62%, #19231d 38%);
+      --text: #f4e8cd;
+      --muted: rgba(244, 232, 205, 0.64);
+      --line: rgba(244, 232, 205, 0.16);
+      --primary: #f4e8cd;
+      --secondary: #62e6ff;
+      --warning: #ff3d2e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(184, 255, 106, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(98, 230, 255, 0.04) 1px, transparent 1px),
+        radial-gradient(circle at 72% 18%, rgba(98, 230, 255, 0.08), transparent 30%),
+        var(--bg);
+      background-size: 28px 28px, 28px 28px, auto, auto;
+      font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      letter-spacing: 0;
+    }
+    .artifact {
+      min-height: 100vh;
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+      grid-template-rows: auto 1fr auto;
+    }
+    .topline, .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid var(--line);
+      background: rgba(5, 7, 6, 0.72);
+      padding: 12px 14px;
+      border-radius: 6px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(20px, 3vw, 38px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .meta, .footer {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .dna, .motifs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag, .motif {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: rgba(244, 232, 205, 0.04);
+    }
+    .tag { color: var(--primary); }
+    .motif { color: var(--secondary); }
+    .frame {
+      border: 1px solid rgba(244, 232, 205, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(244, 232, 205, 0.055), rgba(5, 7, 6, 0.84));
+      box-shadow: inset 0 0 0 1px rgba(184, 255, 106, 0.05);
+      overflow: hidden;
+      min-width: 0;
+    }
+    .label {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    @media (max-width: 760px) {
+      .artifact { padding: 12px; }
+      .topline, .footer { align-items: stretch; flex-direction: column; }
+      .graph-grid, .dashboard, .diagram, .light-table, .panel {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        min-height: auto !important;
+      }
+      .meters, .readout, aside, nav, .status {
+        grid-column: auto !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+      }
+      .meters, .table-grid { grid-template-columns: 1fr !important; }
+      svg { min-height: 340px !important; }
+      table { display: block; overflow-x: auto; }
+    }
+    
+        .light-table { display:grid; grid-template-columns:1fr 300px; min-height:520px; background:linear-gradient(135deg, rgba(244,232,205,.13), rgba(5,7,6,.88)); }
+        .table-grid { padding:26px; display:grid; grid-template-columns:repeat(3, 1fr); grid-auto-rows:1fr; gap:14px; }
+        .source-card { min-height:190px; border:1px solid rgba(244,232,205,.24); background:rgba(244,232,205,.08); padding:14px; display:grid; align-content:space-between; box-shadow:0 0 28px rgba(98,230,255,.07); }
+        .source-card span { color:var(--secondary); font-size:10px; }
+        .source-card h2 { margin:0; color:var(--text); font-size:18px; text-transform:uppercase; }
+        .source-card p { margin:0; color:var(--muted); font-size:11px; text-transform:uppercase; }
+        .source-card i { display:block; height:5px; background:var(--primary); }
+        aside { border-left:1px solid var(--line); padding:18px; display:grid; align-content:center; gap:18px; }
+        aside p { margin:0; font-size:13px; line-height:1.55; }
+        dl { display:grid; gap:10px; margin:0; }
+        dl div { display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:8px; text-transform:uppercase; font-size:11px; }
+        dt { color:var(--muted); }
+        dd { margin:0; color:var(--primary); }
+      
+  </style>
+</head>
+<body>
+  <main class="artifact sourcebook-light-table">
+    <header class="topline">
+      <div>
+        <div class="meta">AtlasSketch deterministic artifact / variant 4</div>
+        <h1>Archive Light Table / Sourcebook Light Table v04</h1>
+      </div>
+      <div class="dna"><span class="tag">sourcebook</span><span class="tag">archive</span><span class="tag">inspection</span></div>
+    </header>
+    <section class="frame light-table">
+        <div class="table-grid"><article class="source-card" style="transform:translate(3px, 2px)">
+      <span>REF-001</span>
+      <h2>sourcebook</h2>
+      <p>paper edge</p>
+      <i style="width:64%"></i>
+    </article><article class="source-card" style="transform:translate(2px, -4px)">
+      <span>REF-002</span>
+      <h2>archive</h2>
+      <p>faint ruling</p>
+      <i style="width:57%"></i>
+    </article><article class="source-card" style="transform:translate(-5px, -4px)">
+      <span>REF-003</span>
+      <h2>inspection</h2>
+      <p>index notch</p>
+      <i style="width:83%"></i>
+    </article><article class="source-card" style="transform:translate(-3px, 4px)">
+      <span>REF-004</span>
+      <h2>sourcebook</h2>
+      <p>paper edge</p>
+      <i style="width:88%"></i>
+    </article><article class="source-card" style="transform:translate(-3px, -1px)">
+      <span>REF-005</span>
+      <h2>archive</h2>
+      <p>faint ruling</p>
+      <i style="width:53%"></i>
+    </article><article class="source-card" style="transform:translate(0px, -3px)">
+      <span>REF-006</span>
+      <h2>inspection</h2>
+      <p>index notch</p>
+      <i style="width:47%"></i>
+    </article></div>
+        <aside>
+          <span class="label">Archive Comparison Channel</span>
+          <p>Generate an inspection light table with translucent annotation panes, index marks, and archival comparison channels.</p>
+          <dl>
+            <div><dt>Palette adherence</dt><dd>86%</dd></div>
+            <div><dt>Grid intensity</dt><dd>54%</dd></div>
+            <div><dt>Variant offset</dt><dd>4</dd></div>
+          </dl>
+        </aside>
+      </section>
+    <footer class="footer">
+      <span>sourcebook-light-table / seed-sourcebook-table</span>
+      <span class="motifs"><span class="motif">paper edge</span><span class="motif">faint ruling</span><span class="motif">index notch</span></span>
+    </footer>
+  </main>
+</body>
+</html>

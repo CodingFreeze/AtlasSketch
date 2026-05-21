@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowRight, CircleDot, FlaskConical, GitBranch, Network } from "lucide-react";
 
@@ -321,10 +322,13 @@ export function AtlasGraph({ clusters, graph, references }: AtlasGraphProps) {
           )}
 
           <div className="grid gap-2 border-t border-atlas-line pt-3">
-            <div className="inline-flex h-10 cursor-not-allowed items-center justify-center gap-2 border border-atlas-line bg-atlas-panel/60 px-3 font-mono text-xs font-medium uppercase tracking-[0.14em] text-atlas-muted/65">
+            <Link
+              className="inline-flex h-10 items-center justify-center gap-2 rounded border border-atlas-line bg-atlas-panel px-3 font-mono text-xs font-medium uppercase tracking-[0.14em] text-atlas-muted transition-colors hover:border-atlas-cyan hover:text-atlas-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-cyan"
+              href={`/boards/${graph.boardSlug}/workbench${selectedCluster ? `?cluster=${encodeURIComponent(selectedCluster.id)}` : ""}`}
+            >
               <FlaskConical aria-hidden="true" size={15} />
-              Workbench queued for Task 7
-            </div>
+              Open Workbench
+            </Link>
           </div>
         </div>
       </Panel>

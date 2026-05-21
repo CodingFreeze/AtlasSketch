@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, FlaskConical, Network } from "lucide-react";
+import { Archive, ArrowRight, BookOpen, FlaskConical, Network } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import { AppFrame } from "@/components/app/AppFrame";
@@ -61,7 +61,7 @@ export default async function BoardPage({ params }: BoardPageProps) {
           </div>
         </Panel>
 
-        <section className="grid gap-3 md:grid-cols-3" aria-label="Board entry points">
+        <section className="grid gap-3 md:grid-cols-2 xl:grid-cols-4" aria-label="Board entry points">
           <Link
             className="group grid gap-2 border border-atlas-line bg-atlas-panel/80 p-4 transition-colors hover:border-atlas-cyan hover:text-atlas-cyan"
             href={`/boards/${board.slug}/library`}
@@ -105,6 +105,21 @@ export default async function BoardPage({ params }: BoardPageProps) {
             </span>
             <span className="text-sm leading-6 text-atlas-muted group-hover:text-atlas-paper/78">
               Deterministic seed controls and sandboxed artifact previews.
+            </span>
+          </Link>
+          <Link
+            className="group grid gap-2 border border-atlas-line bg-atlas-panel/80 p-4 transition-colors hover:border-atlas-cyan hover:text-atlas-cyan"
+            href={`/boards/${board.slug}/artifacts`}
+          >
+            <span className="flex items-center justify-between gap-3 font-mono text-xs font-semibold uppercase tracking-[0.16em]">
+              <span className="inline-flex items-center gap-2">
+                <Archive aria-hidden="true" size={16} />
+                Artifacts
+              </span>
+              <ArrowRight aria-hidden="true" size={15} />
+            </span>
+            <span className="text-sm leading-6 text-atlas-muted group-hover:text-atlas-paper/78">
+              Static rendered outputs, seed lineage, palettes, and source links.
             </span>
           </Link>
         </section>
