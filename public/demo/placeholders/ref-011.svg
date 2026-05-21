@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Abstract lab placeholder ref 011">
+  <rect width="640" height="480" fill="#050706"/>
+  <rect x="118" y="54" width="404" height="372" fill="#0e120f" stroke="#263326" stroke-width="2"/>
+  <rect x="206" y="94" width="228" height="260" fill="#f4e8cd" opacity="0.14" stroke="#f4e8cd" stroke-width="2"/>
+  <path d="M142 92h42M142 136h70M142 180h42M142 224h82M142 268h54M142 312h74M142 356h42" stroke="#ff3d2e" stroke-width="5"/>
+  <path d="M462 110h34M462 166h34M462 222h34M462 278h34M462 334h34" stroke="#b8ff6a" stroke-width="5"/>
+  <path d="M238 144h164M238 190h108M238 236h142M238 282h88" stroke="#8a9588" stroke-width="2"/>
+  <text x="92" y="454" fill="#f4e8cd" font-family="monospace" font-size="28">REF-011</text>
+</svg>

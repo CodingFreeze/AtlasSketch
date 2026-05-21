@@ -12,21 +12,24 @@ type AppFrameProps = {
 };
 
 function buildNav(board?: Board) {
-  const boardBase = board ? `/boards/${board.slug}` : "/";
+  if (!board) {
+    return [{ label: "Boards", href: "/", key: "boards", Icon: CircuitBoard }] as const;
+  }
 
+  const boardBase = `/boards/${board.slug}`;
   return [
     { label: "Boards", href: boardBase, key: "boards", Icon: CircuitBoard },
-    { label: "Library", href: board ? `${boardBase}/library` : "/library", key: "library", Icon: Library },
-    { label: "Atlas", href: board ? `${boardBase}/atlas` : "/atlas", key: "atlas", Icon: Network },
+    { label: "Library", href: `${boardBase}/library`, key: "library", Icon: Library },
+    { label: "Atlas", href: `${boardBase}/atlas`, key: "atlas", Icon: Network },
     {
       label: "Workbench",
-      href: board ? `${boardBase}/workbench` : "/workbench",
+      href: `${boardBase}/workbench`,
       key: "workbench",
       Icon: FlaskConical
     },
     {
       label: "Artifacts",
-      href: board ? `${boardBase}/artifacts` : "/artifacts",
+      href: `${boardBase}/artifacts`,
       key: "artifacts",
       Icon: Archive
     }
