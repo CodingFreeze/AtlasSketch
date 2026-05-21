@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-atlas-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-atlas-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background: #050706;
+  color: #f4e8cd;
+}
+
+body {
+  font-family: var(--font-atlas-sans);
+}
