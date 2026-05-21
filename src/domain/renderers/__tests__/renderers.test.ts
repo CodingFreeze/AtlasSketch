@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { renderArtifact, renderers } from "../index";
+import { sanitizeHexColor } from "../shared";
 import type { ArtifactFamily, Seed } from "../../types";
 
 const families = [
@@ -86,5 +87,52 @@ describe("artifact renderers", () => {
 
     expect(artifact.family).toBe("interface-panel");
     expectStandaloneHtml(artifact.html, seed);
+  });
+
+  it("redacts adversarial seed text and palette values from rendered HTML", () => {
+    const seed: Seed = {
+      ...makeSeed("compression-dashboard"),
+      id: "seed-bad</style><script>alert(1)</script>",
+      title:
+        "Bad </style><script>alert(1)</script><img src=x onerror=alert(1)>",
+      prompt:
+        "Use url(javascript:alert(1)) plus http://evil.test/source and https://evil.test/source /demo/placeholders/ref-001.svg",
+      tags: ["safe", "url(javascript:alert(1))", "<script>bad</script>"],
+      motifs: ["onerror", "</style>", "/demo/placeholders/ref-002.svg"],
+      palette: [
+        { name: "breakout", hex: "#050706;}</style><script>alert(1)</script>" },
+        { name: "url breakout", hex: "url(javascript:alert(1))" as `#${string}` },
+        { name: "protocol breakout", hex: "https://evil.test/#fff" as `#${string}` },
+        { name: "valid short", hex: "#F0A" },
+      ],
+    };
+
+    const html = renderArtifact(seed, 4).html;
+
+    expect(html.toLowerCase()).toContain("<!doctype html>");
+    expect(html).toContain("<style>");
+    expect(html).toContain("--bg: #050706;");
+    expect(html).toContain("--primary: #b8ff6a;");
+    expect(html).toContain("--secondary: #62e6ff;");
+    expect(html).toContain("--warning: #ff00aa;");
+    expect(html).not.toMatch(/<\/style>[\s\S]*<script/i);
+    expect(html).not.toMatch(/<script/i);
+    expect(html).not.toMatch(/onerror/i);
+    expect(html).not.toMatch(/url\s*\(/i);
+    expect(html).not.toMatch(/http:\/\//i);
+    expect(html).not.toMatch(/https:\/\//i);
+    expect(html).not.toContain("/demo/placeholders/");
+    expect(html).not.toContain("#050706;}</style>");
+    expect(html).not.toContain("javascript:");
+  });
+
+  it("normalizes only strict hex palette colors", () => {
+    expect(sanitizeHexColor("#ABC", "#050706")).toBe("#aabbcc");
+    expect(sanitizeHexColor("#AABBCC", "#050706")).toBe("#aabbcc");
+    expect(sanitizeHexColor("#AABBCCDD", "#050706")).toBe("#aabbccdd");
+    expect(sanitizeHexColor("url(javascript:alert(1))", "#b8ff6a")).toBe(
+      "#b8ff6a",
+    );
+    expect(sanitizeHexColor("#fff;</style>", "#62e6ff")).toBe("#62e6ff");
   });
 });

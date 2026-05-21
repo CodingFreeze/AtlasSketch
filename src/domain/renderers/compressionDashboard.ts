@@ -29,6 +29,10 @@ export const compressionDashboardRenderer: ArtifactRenderer = (seed, variant) =>
         <div class="status">
           <span class="label">Compression Field</span>
           <div class="block">${Array.from({ length: 48 }, (_, index) => `<i style="opacity:${0.24 + rng.next() * 0.76}"></i>`).join("")}</div>
+          <div class="recipe">
+            <span class="label">Seed Recipe</span>
+            <p>${escapeHtml(seed.prompt)}</p>
+          </div>
         </div>
         <table>
           <thead><tr><th>Index</th><th>Signal</th><th>Motif</th><th>Load</th></tr></thead>
@@ -41,9 +45,11 @@ export const compressionDashboardRenderer: ArtifactRenderer = (seed, variant) =>
         .meter { display:grid; grid-template-columns:1fr 3fr 34px; gap:8px; align-items:center; font-size:10px; color:var(--muted); text-transform:uppercase; }
         .meter b { height:11px; border:1px solid var(--line); background:linear-gradient(90deg, var(--primary), var(--warning)); }
         .meter em { font-style:normal; color:var(--text); text-align:right; }
-        .status { padding:16px; border-left:1px solid var(--line); }
+        .status { padding:16px; border-left:1px solid var(--line); display:grid; align-content:start; gap:16px; }
         .block { margin-top:16px; display:grid; grid-template-columns:repeat(6, 1fr); gap:6px; }
         .block i { aspect-ratio:1; border:1px solid var(--line); background:var(--warning); }
+        .recipe { border-top:1px solid var(--line); padding-top:14px; }
+        .recipe p { margin:8px 0 0; color:var(--text); font-size:12px; line-height:1.5; }
         table { width:100%; border-collapse:collapse; align-self:start; }
         th, td { padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; font-size:11px; }
         th { color:var(--primary); text-transform:uppercase; }
