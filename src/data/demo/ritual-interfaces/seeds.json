@@ -1,0 +1,98 @@
+[
+  {
+    "id": "seed-signal-atlas",
+    "boardSlug": "ritual-interfaces",
+    "title": "Signal Atlas Rite",
+    "artifactFamily": "data-cartography",
+    "clusterIds": ["cluster-signal-cartography"],
+    "referenceIds": ["ref-001", "ref-002", "ref-003"],
+    "prompt": "Generate a compact signal map with coordinate rails, measured telemetry, and one ceremonial focus ring.",
+    "parameters": {
+      "density": 74,
+      "mutation": 18,
+      "motion": 24,
+      "gridIntensity": 82,
+      "signalNoise": 31,
+      "paletteAdherence": 88
+    },
+    "tags": ["signal", "cartography", "telemetry"],
+    "motifs": ["axis cross", "signal comb", "thin halo"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ]
+  },
+  {
+    "id": "seed-compression-rite",
+    "boardSlug": "ritual-interfaces",
+    "title": "Compression Rite",
+    "artifactFamily": "compression-dashboard",
+    "clusterIds": ["cluster-compression-dashboards"],
+    "referenceIds": ["ref-004", "ref-005", "ref-006"],
+    "prompt": "Generate a high-density compression dashboard with measured overflow, ledger rows, and disciplined red warning states.",
+    "parameters": {
+      "density": 88,
+      "mutation": 12,
+      "motion": 14,
+      "gridIntensity": 76,
+      "signalNoise": 22,
+      "paletteAdherence": 91
+    },
+    "tags": ["compression", "dashboard", "diagnostics"],
+    "motifs": ["stacked meters", "ledger rows", "warning notch"],
+    "palette": [
+      { "name": "oxidized panel", "hex": "#0e120f" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "warning red", "hex": "#ff3d2e" }
+    ]
+  },
+  {
+    "id": "seed-glyph-litany",
+    "boardSlug": "ritual-interfaces",
+    "title": "Glyph Litany",
+    "artifactFamily": "glyph-matrix",
+    "clusterIds": ["cluster-glyph-matrices"],
+    "referenceIds": ["ref-007", "ref-008", "ref-009"],
+    "prompt": "Generate a symbolic matrix that alternates strict glyph cells, radial syntax marks, and rare mutation highlights.",
+    "parameters": {
+      "density": 83,
+      "mutation": 36,
+      "motion": 9,
+      "gridIntensity": 68,
+      "signalNoise": 17,
+      "paletteAdherence": 80
+    },
+    "tags": ["glyph", "matrix", "syntax"],
+    "motifs": ["glyph cells", "radial ticks", "registration dot"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "paper ghost", "hex": "#f4e8cd" },
+      { "name": "rare magenta", "hex": "#ff4fd8" }
+    ]
+  },
+  {
+    "id": "seed-sourcebook-table",
+    "boardSlug": "ritual-interfaces",
+    "title": "Sourcebook Table",
+    "artifactFamily": "sourcebook-light-table",
+    "clusterIds": ["cluster-sourcebook-light-tables"],
+    "referenceIds": ["ref-010", "ref-011", "ref-012"],
+    "prompt": "Generate an inspection light table with translucent annotation panes, index marks, and archival comparison channels.",
+    "parameters": {
+      "density": 61,
+      "mutation": 15,
+      "motion": 18,
+      "gridIntensity": 54,
+      "signalNoise": 12,
+      "paletteAdherence": 86
+    },
+    "tags": ["sourcebook", "archive", "inspection"],
+    "motifs": ["paper edge", "faint ruling", "index notch"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "paper ghost", "hex": "#f4e8cd" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ]
+  }
+]

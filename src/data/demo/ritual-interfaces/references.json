@@ -1,0 +1,218 @@
+[
+  {
+    "id": "ref-001",
+    "boardSlug": "ritual-interfaces",
+    "title": "Threshold Console",
+    "placeholderPath": "/demo/placeholders/ref-001.svg",
+    "sourceClass": "control-room",
+    "clusterId": "cluster-signal-cartography",
+    "tags": ["threshold", "signal", "console", "cartography"],
+    "motifs": ["axis cross", "signal comb", "coordinate ticks"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ],
+    "composition": "Large left register, nested coordinate rails, small status cells at the lower edge.",
+    "notes": "Feels like an entry rite into a larger instrument system.",
+    "aestheticAxes": { "density": 72, "contrast": 84, "ritual": 76, "signal": 91 }
+  },
+  {
+    "id": "ref-002",
+    "boardSlug": "ritual-interfaces",
+    "title": "Signal Meridian Plate",
+    "placeholderPath": "/demo/placeholders/ref-002.svg",
+    "sourceClass": "diagram",
+    "clusterId": "cluster-signal-cartography",
+    "tags": ["map", "meridian", "diagram", "voltage"],
+    "motifs": ["thin halo", "latitude rail", "index notch"],
+    "palette": [
+      { "name": "oxidized panel", "hex": "#0e120f" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "warning red", "hex": "#ff3d2e" }
+    ],
+    "composition": "Centered circular field crossed by calibrated meridians and clipped warning marks.",
+    "notes": "A navigational diagram translated into an interface control state.",
+    "aestheticAxes": { "density": 66, "contrast": 79, "ritual": 69, "signal": 88 }
+  },
+  {
+    "id": "ref-003",
+    "boardSlug": "ritual-interfaces",
+    "title": "Telemetry Reliquary",
+    "placeholderPath": "/demo/placeholders/ref-003.svg",
+    "sourceClass": "terminal",
+    "clusterId": "cluster-signal-cartography",
+    "tags": ["telemetry", "reliquary", "coordinates", "status"],
+    "motifs": ["signal comb", "minor grid", "calibration rail"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "inspection cyan", "hex": "#62e6ff" },
+      { "name": "terminal lime", "hex": "#b8ff6a" }
+    ],
+    "composition": "Stacked signal rows orbit a quiet central data well.",
+    "notes": "The structure suggests monitoring as a kind of careful preservation.",
+    "aestheticAxes": { "density": 81, "contrast": 73, "ritual": 71, "signal": 94 }
+  },
+  {
+    "id": "ref-004",
+    "boardSlug": "ritual-interfaces",
+    "title": "Compression Choir",
+    "placeholderPath": "/demo/placeholders/ref-004.svg",
+    "sourceClass": "instrument-panel",
+    "clusterId": "cluster-compression-dashboards",
+    "tags": ["compression", "dashboard", "bars", "throughput"],
+    "motifs": ["stacked meters", "warning notch", "signal comb"],
+    "palette": [
+      { "name": "oxidized panel", "hex": "#0e120f" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "warning red", "hex": "#ff3d2e" }
+    ],
+    "composition": "Dense meter stacks with asymmetric labels and one red overflow trace.",
+    "notes": "Turns compression metrics into a disciplined visual chant.",
+    "aestheticAxes": { "density": 89, "contrast": 82, "ritual": 62, "signal": 86 }
+  },
+  {
+    "id": "ref-005",
+    "boardSlug": "ritual-interfaces",
+    "title": "Entropy Ledger",
+    "placeholderPath": "/demo/placeholders/ref-005.svg",
+    "sourceClass": "terminal",
+    "clusterId": "cluster-compression-dashboards",
+    "tags": ["entropy", "ledger", "compression", "diagnostics"],
+    "motifs": ["ledger rows", "calibration rail", "index notch"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "muted zinc", "hex": "#8a9588" },
+      { "name": "terminal lime", "hex": "#b8ff6a" }
+    ],
+    "composition": "Tabular bands compressed against a narrow control spine.",
+    "notes": "Austerity and repetition make the panel feel procedural.",
+    "aestheticAxes": { "density": 84, "contrast": 68, "ritual": 58, "signal": 78 }
+  },
+  {
+    "id": "ref-006",
+    "boardSlug": "ritual-interfaces",
+    "title": "Delta Heat Register",
+    "placeholderPath": "/demo/placeholders/ref-006.svg",
+    "sourceClass": "instrument-panel",
+    "clusterId": "cluster-compression-dashboards",
+    "tags": ["delta", "heat", "register", "compression"],
+    "motifs": ["thermal ladder", "stacked meters", "cut corner"],
+    "palette": [
+      { "name": "oxidized panel", "hex": "#0e120f" },
+      { "name": "warning red", "hex": "#ff3d2e" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ],
+    "composition": "A vertical pressure ladder interrupts a field of compact counters.",
+    "notes": "Suggests a dashboard for watching restrained volatility.",
+    "aestheticAxes": { "density": 77, "contrast": 87, "ritual": 54, "signal": 82 }
+  },
+  {
+    "id": "ref-007",
+    "boardSlug": "ritual-interfaces",
+    "title": "Glyph Discipline Grid",
+    "placeholderPath": "/demo/placeholders/ref-007.svg",
+    "sourceClass": "manuscript",
+    "clusterId": "cluster-glyph-matrices",
+    "tags": ["glyph", "matrix", "syntax", "catalog"],
+    "motifs": ["glyph cells", "axis cross", "registration dot"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "paper ghost", "hex": "#f4e8cd" },
+      { "name": "terminal lime", "hex": "#b8ff6a" }
+    ],
+    "composition": "Strict glyph grid with broken rhythm in every fourth column.",
+    "notes": "Reads as an alphabet for machines that expect ceremony.",
+    "aestheticAxes": { "density": 93, "contrast": 74, "ritual": 88, "signal": 67 }
+  },
+  {
+    "id": "ref-008",
+    "boardSlug": "ritual-interfaces",
+    "title": "Mnemonic Array",
+    "placeholderPath": "/demo/placeholders/ref-008.svg",
+    "sourceClass": "archive-scan",
+    "clusterId": "cluster-glyph-matrices",
+    "tags": ["mnemonic", "archive", "glyph", "array"],
+    "motifs": ["glyph cells", "index notch", "faint ruling"],
+    "palette": [
+      { "name": "oxidized panel", "hex": "#0e120f" },
+      { "name": "paper ghost", "hex": "#f4e8cd" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ],
+    "composition": "Archive-like sheet with glyph islands and quiet cyan indexing.",
+    "notes": "Balances sourcebook tactility with a synthesized machine grammar.",
+    "aestheticAxes": { "density": 75, "contrast": 65, "ritual": 82, "signal": 61 }
+  },
+  {
+    "id": "ref-009",
+    "boardSlug": "ritual-interfaces",
+    "title": "Syntax Rosette",
+    "placeholderPath": "/demo/placeholders/ref-009.svg",
+    "sourceClass": "diagram",
+    "clusterId": "cluster-glyph-matrices",
+    "tags": ["syntax", "rosette", "glyph", "ritual"],
+    "motifs": ["thin halo", "glyph cells", "radial ticks"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "terminal lime", "hex": "#b8ff6a" },
+      { "name": "rare magenta", "hex": "#ff4fd8" }
+    ],
+    "composition": "Radial glyph wheel set against a disciplined rectangular frame.",
+    "notes": "The rare magenta accent marks a mutation state without taking over.",
+    "aestheticAxes": { "density": 69, "contrast": 81, "ritual": 91, "signal": 70 }
+  },
+  {
+    "id": "ref-010",
+    "boardSlug": "ritual-interfaces",
+    "title": "Sourcebook Light Table",
+    "placeholderPath": "/demo/placeholders/ref-010.svg",
+    "sourceClass": "archive-scan",
+    "clusterId": "cluster-sourcebook-light-tables",
+    "tags": ["sourcebook", "light-table", "archive", "inspection"],
+    "motifs": ["faint ruling", "registration dot", "paper edge"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "paper ghost", "hex": "#f4e8cd" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ],
+    "composition": "Layered translucent sheets on a dark table with precise inspection marks.",
+    "notes": "Makes browsing feel like handling a technical sourcebook under glass.",
+    "aestheticAxes": { "density": 62, "contrast": 71, "ritual": 73, "signal": 56 }
+  },
+  {
+    "id": "ref-011",
+    "boardSlug": "ritual-interfaces",
+    "title": "Index Chapel",
+    "placeholderPath": "/demo/placeholders/ref-011.svg",
+    "sourceClass": "manuscript",
+    "clusterId": "cluster-sourcebook-light-tables",
+    "tags": ["index", "chapel", "sourcebook", "ritual"],
+    "motifs": ["index notch", "paper edge", "calibration rail"],
+    "palette": [
+      { "name": "oxidized panel", "hex": "#0e120f" },
+      { "name": "paper ghost", "hex": "#f4e8cd" },
+      { "name": "warning red", "hex": "#ff3d2e" }
+    ],
+    "composition": "Vertical index marks frame a pale central sheet with sparse annotations.",
+    "notes": "A quiet archival surface with a ceremonial sense of containment.",
+    "aestheticAxes": { "density": 57, "contrast": 77, "ritual": 86, "signal": 48 }
+  },
+  {
+    "id": "ref-012",
+    "boardSlug": "ritual-interfaces",
+    "title": "Annotation Array",
+    "placeholderPath": "/demo/placeholders/ref-012.svg",
+    "sourceClass": "archive-scan",
+    "clusterId": "cluster-sourcebook-light-tables",
+    "tags": ["annotation", "array", "inspection", "sourcebook"],
+    "motifs": ["faint ruling", "registration dot", "coordinate ticks"],
+    "palette": [
+      { "name": "charcoal field", "hex": "#050706" },
+      { "name": "muted zinc", "hex": "#8a9588" },
+      { "name": "inspection cyan", "hex": "#62e6ff" }
+    ],
+    "composition": "Multiple notation windows held in a clear inspection grid.",
+    "notes": "Best source for light-table browsing and reference comparison states.",
+    "aestheticAxes": { "density": 68, "contrast": 62, "ritual": 68, "signal": 59 }
+  }
+]
