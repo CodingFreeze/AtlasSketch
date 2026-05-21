@@ -68,7 +68,10 @@ export type ReferenceBlock = {
   placeholderPath: string;
   sourceClass: SourceClass;
   clusterId: string;
+  clusterIds?: string[];
   tags: string[];
+  visualTags?: string[];
+  semanticTags?: string[];
   motifs: string[];
   palette: PaletteColor[];
   composition: string;
