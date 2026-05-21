@@ -41,7 +41,7 @@ export function createRng(seedKey: string): Rng {
 }
 
 export function escapeHtml(value: string): string {
-  return sanitizeText(value)
+  return sanitizeText(String(value))
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -51,17 +51,36 @@ export function escapeHtml(value: string): string {
 
 function sanitizeText(value: string): string {
   return value
+    .replace(/<script[\s\S]*?<\/script\s*>/gi, "[redacted]")
+    .replace(/<[^>]*\bonerror\b[^>]*>/gi, "[redacted]")
     .replace(/https?:\/\/\S+/gi, "[redacted]")
     .replace(/\/demo\/placeholders\/\S*/gi, "[redacted]")
-    .replace(/<\/style/gi, "[redacted]")
+    .replace(/<\/?style[\s\S]*?>/gi, "[redacted]")
     .replace(/<script/gi, "[redacted]")
-    .replace(/\bonerror\b/gi, "[redacted]")
-    .replace(/url\s*\(/gi, "[redacted]")
-    .replace(/javascript\s*:/gi, "[redacted]");
+    .replace(/\bonerror\s*=?\s*\S*/gi, "[redacted]")
+    .replace(/url\s*\([^)]*\)/gi, "[redacted]")
+    .replace(/javascript\s*:\S*/gi, "[redacted]");
+}
+
+export function safeNumber(
+  value: unknown,
+  fallback: number,
+  min: number,
+  max: number,
+): number {
+  const numericValue =
+    typeof value === "number"
+      ? value
+      : typeof value === "string" && value.trim() !== ""
+        ? Number(value)
+        : fallback;
+  const finiteValue = Number.isFinite(numericValue) ? numericValue : fallback;
+
+  return Math.max(min, Math.min(max, finiteValue));
 }
 
 export function sanitizeHexColor(value: string, fallback: string): string {
-  const trimmed = value.trim();
+  const trimmed = String(value).trim();
   const fallbackColor = normalizeHexColor(fallback) ?? DEFAULT_PALETTE[0].hex;
   return normalizeHexColor(trimmed) ?? fallbackColor;
 }
@@ -99,7 +118,8 @@ export function color(seed: Seed, index: number, fallback: string): string {
 }
 
 export function artifactTitle(seed: Seed, variant: number, label: string): string {
-  return `${seed.title} / ${label} v${variant.toString().padStart(2, "0")}`;
+  const safeVariant = safeNumber(variant, 0, 0, 999);
+  return `${seed.title} / ${label} v${safeVariant.toString().padStart(2, "0")}`;
 }
 
 export function listItems(items: readonly string[], className: string): string {
@@ -110,7 +130,9 @@ export function listItems(items: readonly string[], className: string): string {
 }
 
 export function metric(seed: Seed, key: keyof Seed["parameters"], variant: number) {
-  return Math.max(3, Math.min(97, seed.parameters[key] + ((variant % 7) - 3) * 2));
+  const value = safeNumber(seed.parameters[key], 50, 0, 100);
+  const safeVariant = safeNumber(variant, 0, 0, 999);
+  return Math.max(3, Math.min(97, value + ((safeVariant % 7) - 3) * 2));
 }
 
 type ShellOptions = {
@@ -135,6 +157,7 @@ export function renderShell({
   const secondary = color(seed, 2, "#62e6ff");
   const warning = color(seed, 3, "#ff3d2e");
   const escapedTitle = escapeHtml(title);
+  const safeVariant = safeNumber(variant, 0, 0, 999);
   const tags = listItems(seed.tags, "tag");
   const motifs = listItems(seed.motifs, "motif");
 
@@ -249,7 +272,7 @@ export function renderShell({
   <main class="artifact ${bodyClass}">
     <header class="topline">
       <div>
-        <div class="meta">AtlasSketch deterministic artifact / variant ${variant}</div>
+        <div class="meta">AtlasSketch deterministic artifact / variant ${safeVariant}</div>
         <h1>${escapedTitle}</h1>
       </div>
       <div class="dna">${tags}</div>

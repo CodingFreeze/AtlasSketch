@@ -1,4 +1,12 @@
-import { artifactTitle, color, createRng, escapeHtml, metric, renderShell } from "./shared";
+import {
+  artifactTitle,
+  color,
+  createRng,
+  escapeHtml,
+  metric,
+  renderShell,
+  safeNumber,
+} from "./shared";
 import type { ArtifactRenderer } from "./types";
 
 export const signalGraphRenderer: ArtifactRenderer = (seed, variant) => {
@@ -24,7 +32,12 @@ export const signalGraphRenderer: ArtifactRenderer = (seed, variant) => {
     )
     .join("");
   const sweeps = Array.from({ length: 7 }, (_, index) => {
-    const width = metric(seed, "signalNoise", variant) + index * 4;
+    const width = safeNumber(
+      metric(seed, "signalNoise", variant) + index * 4,
+      50,
+      0,
+      100,
+    );
     return `<div class="sweep"><span>${escapeHtml(seed.tags[index % seed.tags.length] ?? "signal")}</span><b style="width:${width}%"></b></div>`;
   }).join("");
 

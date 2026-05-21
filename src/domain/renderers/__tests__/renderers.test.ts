@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { renderArtifact, renderers } from "../index";
-import { sanitizeHexColor } from "../shared";
+import { safeNumber, sanitizeHexColor } from "../shared";
 import type { ArtifactFamily, Seed } from "../../types";
 
 const families = [
@@ -10,6 +10,8 @@ const families = [
   "sourcebook-light-table",
   "interface-panel",
 ] satisfies ArtifactFamily[];
+
+const maliciousMarker = "MALICIOUS_RAW_MARKER";
 
 function makeSeed(artifactFamily: ArtifactFamily): Seed {
   return {
@@ -48,6 +50,49 @@ function expectStandaloneHtml(html: string, seed: Seed) {
   expect(html).not.toContain("https://");
   expect(html).not.toContain("http://");
   expect(html).toContain(seed.title);
+}
+
+function makeMaliciousSeed(artifactFamily: ArtifactFamily): Seed {
+  return {
+    ...makeSeed(artifactFamily),
+    id: "seed-bad</style><script>alert(1)</script>",
+    title: `Bad </style><script>${maliciousMarker}</script><img src=x onerror=${maliciousMarker}>`,
+    artifactFamily,
+    prompt: `Use url(javascript:${maliciousMarker}) plus http://evil.test/${maliciousMarker} and https://evil.test/${maliciousMarker} /demo/placeholders/${maliciousMarker}.svg`,
+    parameters: {
+      density: `</style><script>${maliciousMarker}</script>` as unknown as number,
+      mutation: `url(javascript:${maliciousMarker})` as unknown as number,
+      motion: `http://evil.test/${maliciousMarker}` as unknown as number,
+      gridIntensity: `<img src=x onerror=${maliciousMarker}>` as unknown as number,
+      signalNoise: `https://evil.test/${maliciousMarker}` as unknown as number,
+      paletteAdherence:
+        `/demo/placeholders/${maliciousMarker}.svg` as unknown as number,
+      labelFrequency:
+        `</style><script>${maliciousMarker}</script>` as unknown as number,
+    } as Seed["parameters"],
+    tags: [
+      "safe",
+      `url(javascript:${maliciousMarker})`,
+      `<script>${maliciousMarker}</script>`,
+    ],
+    motifs: [
+      `onerror=${maliciousMarker}`,
+      `</style><script>${maliciousMarker}</script>`,
+      `/demo/placeholders/${maliciousMarker}.svg`,
+    ],
+    palette: [
+      { name: "breakout", hex: "#050706;}</style><script>alert(1)</script>" },
+      {
+        name: "url breakout",
+        hex: "url(javascript:alert(1))" as `#${string}`,
+      },
+      {
+        name: "protocol breakout",
+        hex: "https://evil.test/#fff" as `#${string}`,
+      },
+      { name: "valid short", hex: "#F0A" },
+    ],
+  };
 }
 
 describe("artifact renderers", () => {
@@ -89,42 +134,32 @@ describe("artifact renderers", () => {
     expectStandaloneHtml(artifact.html, seed);
   });
 
-  it("redacts adversarial seed text and palette values from rendered HTML", () => {
-    const seed: Seed = {
-      ...makeSeed("compression-dashboard"),
-      id: "seed-bad</style><script>alert(1)</script>",
-      title:
-        "Bad </style><script>alert(1)</script><img src=x onerror=alert(1)>",
-      prompt:
-        "Use url(javascript:alert(1)) plus http://evil.test/source and https://evil.test/source /demo/placeholders/ref-001.svg",
-      tags: ["safe", "url(javascript:alert(1))", "<script>bad</script>"],
-      motifs: ["onerror", "</style>", "/demo/placeholders/ref-002.svg"],
-      palette: [
-        { name: "breakout", hex: "#050706;}</style><script>alert(1)</script>" },
-        { name: "url breakout", hex: "url(javascript:alert(1))" as `#${string}` },
-        { name: "protocol breakout", hex: "https://evil.test/#fff" as `#${string}` },
-        { name: "valid short", hex: "#F0A" },
-      ],
-    };
+  it.each(families)(
+    "redacts adversarial seed text, palette, and parameters from %s HTML",
+    (family) => {
+      const seed = makeMaliciousSeed(family);
+      const html = renderArtifact(seed, 4).html;
+      const styleCloseCount = html.match(/<\/style>/gi)?.length ?? 0;
 
-    const html = renderArtifact(seed, 4).html;
-
-    expect(html.toLowerCase()).toContain("<!doctype html>");
-    expect(html).toContain("<style>");
-    expect(html).toContain("--bg: #050706;");
-    expect(html).toContain("--primary: #b8ff6a;");
-    expect(html).toContain("--secondary: #62e6ff;");
-    expect(html).toContain("--warning: #ff00aa;");
-    expect(html).not.toMatch(/<\/style>[\s\S]*<script/i);
-    expect(html).not.toMatch(/<script/i);
-    expect(html).not.toMatch(/onerror/i);
-    expect(html).not.toMatch(/url\s*\(/i);
-    expect(html).not.toMatch(/http:\/\//i);
-    expect(html).not.toMatch(/https:\/\//i);
-    expect(html).not.toContain("/demo/placeholders/");
-    expect(html).not.toContain("#050706;}</style>");
-    expect(html).not.toContain("javascript:");
-  });
+      expect(html.toLowerCase()).toContain("<!doctype html>");
+      expect(html).toContain("<style>");
+      expect(styleCloseCount).toBe(1);
+      expect(html).toContain("--bg: #050706;");
+      expect(html).toContain("--primary: #b8ff6a;");
+      expect(html).toContain("--secondary: #62e6ff;");
+      expect(html).toContain("--warning: #ff00aa;");
+      expect(html).not.toMatch(/<\/style>[\s\S]*<script/i);
+      expect(html).not.toMatch(/<script/i);
+      expect(html).not.toMatch(/onerror/i);
+      expect(html).not.toMatch(/url\s*\(/i);
+      expect(html).not.toMatch(/http:\/\//i);
+      expect(html).not.toMatch(/https:\/\//i);
+      expect(html).not.toContain("/demo/placeholders/");
+      expect(html).not.toContain("#050706;}</style>");
+      expect(html).not.toContain("javascript:");
+      expect(html).not.toContain(maliciousMarker);
+    },
+  );
 
   it("normalizes only strict hex palette colors", () => {
     expect(sanitizeHexColor("#ABC", "#050706")).toBe("#aabbcc");
@@ -134,5 +169,15 @@ describe("artifact renderers", () => {
       "#b8ff6a",
     );
     expect(sanitizeHexColor("#fff;</style>", "#62e6ff")).toBe("#62e6ff");
+  });
+
+  it("coerces numeric parameters to finite clamped values", () => {
+    expect(safeNumber(120, 50, 0, 100)).toBe(100);
+    expect(safeNumber(-20, 50, 0, 100)).toBe(0);
+    expect(safeNumber("72", 50, 0, 100)).toBe(72);
+    expect(
+      safeNumber(`</style><script>${maliciousMarker}</script>`, 50, 0, 100),
+    ).toBe(50);
+    expect(safeNumber(Number.NaN, 50, 0, 100)).toBe(50);
   });
 });

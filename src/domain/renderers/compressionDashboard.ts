@@ -1,19 +1,28 @@
-import { artifactTitle, createRng, escapeHtml, metric, renderShell } from "./shared";
+import {
+  artifactTitle,
+  createRng,
+  escapeHtml,
+  metric,
+  renderShell,
+  safeNumber,
+} from "./shared";
 import type { ArtifactRenderer } from "./types";
 
 export const compressionDashboardRenderer: ArtifactRenderer = (seed, variant) => {
   const rng = createRng(`${seed.id}:compression-dashboard:${variant}`);
+  const safeVariant = safeNumber(variant, 0, 0, 999);
   const title = artifactTitle(seed, variant, "Compression Dashboard");
   const meters = Object.entries(seed.parameters)
     .map(([key, value], index) => {
-      const adjusted = Math.max(4, Math.min(98, value + rng.int(-8, 8)));
-      return `<div class="meter"><span>${escapeHtml(key)}</span><b style="width:${adjusted}%"></b><em>${adjusted.toString().padStart(2, "0")}</em></div>`;
+      const adjusted = safeNumber(value, 50, 4, 98) + rng.int(-8, 8);
+      const clamped = safeNumber(adjusted, 50, 4, 98);
+      return `<div class="meter"><span>${escapeHtml(key)}</span><b style="width:${clamped}%"></b><em>${clamped.toString().padStart(2, "0")}</em></div>`;
     })
     .join("");
   const rows = Array.from({ length: 11 }, (_, index) => {
     const tag = seed.tags[index % seed.tags.length] ?? "diagnostic";
     const load = metric(seed, index % 2 === 0 ? "density" : "gridIntensity", variant) - rng.int(0, 18);
-    return `<tr><td>0${variant}-${(index + 1).toString().padStart(2, "0")}</td><td>${escapeHtml(tag)}</td><td>${escapeHtml(seed.motifs[index % seed.motifs.length] ?? "rail")}</td><td>${load}%</td></tr>`;
+    return `<tr><td>0${safeVariant}-${(index + 1).toString().padStart(2, "0")}</td><td>${escapeHtml(tag)}</td><td>${escapeHtml(seed.motifs[index % seed.motifs.length] ?? "rail")}</td><td>${safeNumber(load, 50, 0, 100)}%</td></tr>`;
   }).join("");
 
   return {

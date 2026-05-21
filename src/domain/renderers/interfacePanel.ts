@@ -1,13 +1,20 @@
-import { artifactTitle, createRng, escapeHtml, renderShell } from "./shared";
+import {
+  artifactTitle,
+  createRng,
+  escapeHtml,
+  renderShell,
+  safeNumber,
+} from "./shared";
 import type { ArtifactRenderer } from "./types";
 
 export const interfacePanelRenderer: ArtifactRenderer = (seed, variant) => {
   const rng = createRng(`${seed.id}:interface-panel:${variant}`);
+  const safeVariant = safeNumber(variant, 0, 0, 999);
   const title = artifactTitle(seed, variant, "Interface Panel");
   const toggles = seed.tags
     .concat(seed.motifs)
     .slice(0, 8)
-    .map((item, index) => `<button type="button" class="${index % 3 === variant % 3 ? "active" : ""}">${escapeHtml(item)}</button>`)
+    .map((item, index) => `<button type="button" class="${index % 3 === safeVariant % 3 ? "active" : ""}">${escapeHtml(item)}</button>`)
     .join("");
   const cells = Array.from({ length: 64 }, (_, index) => {
     const lit = rng.next() > 0.46;
