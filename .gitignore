@@ -22,6 +22,8 @@ docs/superpowers/
 .claude-flow/
 .playwright-mcp/
 *.png
+# ...but keep committed demo media
+!docs/media/*.png
 
 # Environment variables
 .env
