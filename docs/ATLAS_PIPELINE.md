@@ -49,7 +49,7 @@ Static public assets live under:
 7. Run `pnpm lint`, `pnpm typecheck`, `pnpm test`, and `pnpm build`.
 8. Review the diff for secrets and private-source leakage before publishing.
 
-The current demo uses Codex as the offline extraction and authoring assistant. A future Local Studio mode can replace that with a dedicated VLM/LLM extractor, but the public app should remain static and read-only.
+The current demo relies on an offline extraction and authoring step run by hand. A future Local Studio mode can replace that with a dedicated VLM/LLM extractor, but the public app should remain static and read-only.
 
 ## Artifact Rendering
 
