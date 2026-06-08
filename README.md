@@ -57,3 +57,7 @@ Private reference exports
 ```
 
 See `docs/ATLAS_PIPELINE.md` for the data boundaries, refresh process, and future Local Studio direction.
+
+## License
+
+Released under the [MIT License](LICENSE).
