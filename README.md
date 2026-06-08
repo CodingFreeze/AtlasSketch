@@ -4,6 +4,16 @@ AtlasSketch is a static-cost public showcase for a private, local-first taste at
 
 The current demo ships one compiled board, **Ritual Interfaces**, with public-safe placeholder references, clusters, seeds, an interactive atlas, a deterministic workbench, and a static artifact gallery.
 
+## Demo
+
+**Interactive atlas** — drag nodes to reposition them; connected nodes tug along. Selecting a node opens its palette, motifs, and edge reasons.
+
+![AtlasSketch interactive atlas graph](docs/media/atlas.png)
+
+**Deterministic workbench** — the sliders mutate compiled seeds into artifact variants via an FNV-1a hash, so every parameter set renders the same artifact every time.
+
+![AtlasSketch deterministic seed workbench](docs/media/workbench.png)
+
 ## Run Locally
 
 ```bash
