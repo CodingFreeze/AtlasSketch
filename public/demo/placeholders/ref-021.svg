@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Abstract lab placeholder ref-021">
+  <rect width="640" height="480" fill="#050706"/>
+  <path d="M0 80h640M0 160h640M0 240h640M0 320h640M0 400h640M80 0v480M160 0v480M240 0v480M320 0v480M400 0v480M480 0v480M560 0v480" stroke="#263326" stroke-width="1"/>
+  <rect x="64" y="56" width="512" height="368" fill="#050706" opacity="0.9" stroke="#263326" stroke-width="2"/>
+  <path d="M126 112h28v28h-28zM168 120h42M168 134h24" fill="none" stroke="#b8ff6a" stroke-width="2" opacity="0.8"/><path d="M224 112h28v28h-28zM266 120h42M266 134h24" fill="none" stroke="#f4e8cd" stroke-width="2" opacity="0.8"/><path d="M322 112h28v28h-28zM364 120h42M364 134h24" fill="none" stroke="#f4e8cd" stroke-width="2" opacity="0.8"/><path d="M420 112h28v28h-28zM462 120h42M462 134h24" fill="none" stroke="#b8ff6a" stroke-width="2" opacity="0.8"/><path d="M126 204h28v28h-28zM168 212h42M168 226h24" fill="none" stroke="#f4e8cd" stroke-width="2" opacity="0.8"/><path d="M224 204h28v28h-28zM266 212h42M266 226h24" fill="none" stroke="#f4e8cd" stroke-width="2" opacity="0.8"/><path d="M322 204h28v28h-28zM364 212h42M364 226h24" fill="none" stroke="#b8ff6a" stroke-width="2" opacity="0.8"/><path d="M420 204h28v28h-28zM462 212h42M462 226h24" fill="none" stroke="#f4e8cd" stroke-width="2" opacity="0.8"/>
+  <path d="M96 388h448" stroke="#b8ff6a" stroke-width="3" stroke-dasharray="10 12" opacity="0.75"/>
+  <text x="92" y="432" fill="#f4e8cd" font-family="monospace" font-size="28">REF-021</text>
+</svg>

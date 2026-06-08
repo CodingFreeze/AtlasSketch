@@ -7,3 +7,23 @@ playwright-report/
 test-results/
 tsconfig.tsbuildinfo
 .env*.local
+.swarm/
+ruvector.db
+
+# Local agent and MCP configuration
+.agents/
+.codex/
+.mcp.json
+AGENTS.md
+CLAUDE.md
+docs/superpowers/
+
+# Local runtime captures
+.claude-flow/
+.playwright-mcp/
+*.png
+
+# Environment variables
+.env
+.env.local
+.env.*.local

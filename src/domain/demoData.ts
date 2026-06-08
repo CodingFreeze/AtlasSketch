@@ -1,10 +1,10 @@
 import boards from "@/data/demo/boards.json";
 import artifacts from "@/data/demo/ritual-interfaces/artifacts.json";
-import atlas from "@/data/demo/ritual-interfaces/atlas.json";
 import clusters from "@/data/demo/ritual-interfaces/clusters.json";
 import manifest from "@/data/demo/ritual-interfaces/manifest.json";
 import references from "@/data/demo/ritual-interfaces/references.json";
 import seeds from "@/data/demo/ritual-interfaces/seeds.json";
+import { buildAtlasGraph } from "./graph";
 import type {
   Artifact,
   AtlasGraph,
@@ -30,7 +30,7 @@ const datasets: Record<string, BoardDataset> = {
     board: manifest as Board,
     references: references as ReferenceBlock[],
     clusters: clusters as Cluster[],
-    atlas: atlas as AtlasGraph,
+    atlas: buildAtlasGraph(manifest as Board, clusters as Cluster[], references as ReferenceBlock[]),
     seeds: seeds as Seed[],
     artifacts: artifacts as Artifact[],
   },
