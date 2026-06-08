@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ScanLine } from "lucide-react";
+import Link from "next/link";
+import { FileSearch2, ScanLine } from "lucide-react";
 
 import { DnaStrip } from "@/components/dna/DnaStrip";
 import { Chip } from "@/components/ui/Chip";
@@ -9,6 +10,7 @@ import type { Cluster, ReferenceBlock } from "@/domain/types";
 type ReferenceGridProps = {
   references: ReferenceBlock[];
   clusters?: Cluster[];
+  boardSlug: string;
 };
 
 function getTagGroups(reference: ReferenceBlock) {
@@ -23,7 +25,7 @@ function getClusterIds(reference: ReferenceBlock) {
   return reference.clusterIds ?? [reference.clusterId];
 }
 
-export function ReferenceGrid({ clusters = [], references }: ReferenceGridProps) {
+export function ReferenceGrid({ boardSlug, clusters = [], references }: ReferenceGridProps) {
   const clusterById = new Map(clusters.map((cluster) => [cluster.id, cluster]));
 
   return (
@@ -31,10 +33,11 @@ export function ReferenceGrid({ clusters = [], references }: ReferenceGridProps)
       aria-label="Reference library"
       className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
     >
-      {references.map((reference) => {
+      {references.map((reference, index) => {
         const tagGroups = getTagGroups(reference);
         const clusterIds = getClusterIds(reference);
         const clusterLabels = clusterIds.map((id) => clusterById.get(id)?.label ?? id);
+        const href = `/boards/${boardSlug}/library/${reference.id}`;
 
         return (
           <Panel
@@ -43,12 +46,17 @@ export function ReferenceGrid({ clusters = [], references }: ReferenceGridProps)
             headingAs="h3"
             key={reference.id}
           >
-            <div className="relative aspect-[4/3] overflow-hidden border border-atlas-line bg-atlas-black">
+            <Link
+              aria-label={`Open ${reference.title} reference dossier`}
+              className="group relative aspect-[4/3] overflow-hidden border border-atlas-line bg-atlas-black transition-colors hover:border-atlas-lime focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-cyan"
+              href={href}
+            >
               <div className="absolute inset-0 bg-[linear-gradient(rgba(184,255,106,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(98,230,255,0.06)_1px,transparent_1px)] bg-[size:18px_18px]" />
               <Image
                 alt=""
-                className="object-cover opacity-90 mix-blend-screen"
+                className="object-cover opacity-90 mix-blend-screen transition duration-200 group-hover:scale-[1.025] group-hover:opacity-100"
                 fill
+                priority={index < 4}
                 sizes="(min-width: 1536px) 25vw, (min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
                 src={reference.placeholderPath}
               />
@@ -56,16 +64,23 @@ export function ReferenceGrid({ clusters = [], references }: ReferenceGridProps)
                 <ScanLine aria-hidden="true" size={12} />
                 {reference.sourceClass}
               </span>
-            </div>
+              <span className="absolute bottom-2 right-2 inline-flex items-center gap-1 border border-atlas-lime bg-atlas-black/85 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-atlas-lime opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                <FileSearch2 aria-hidden="true" size={12} />
+                Dossier
+              </span>
+            </Link>
 
             <div className="grid gap-2">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-atlas-muted">
                   {reference.id}
                 </p>
-                <h2 className="mt-1 text-pretty font-mono text-sm font-semibold uppercase tracking-[0.1em] text-atlas-paper">
+                <Link
+                  className="mt-1 block text-pretty font-mono text-sm font-semibold uppercase tracking-[0.1em] text-atlas-paper transition-colors hover:text-atlas-lime focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-cyan"
+                  href={href}
+                >
                   {reference.title}
-                </h2>
+                </Link>
               </div>
 
               <div className="flex flex-wrap gap-1.5">
