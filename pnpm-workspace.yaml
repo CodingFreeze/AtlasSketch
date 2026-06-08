@@ -1,0 +1,5 @@
+# Security override: force a patched postcss across the whole dependency tree.
+# Next.js pulls postcss 8.4.31 transitively, which is vulnerable to
+# GHSA-qx2v-qp2m-jg93 (XSS via a crafted CSS source). Pin to the patched line.
+overrides:
+  postcss: '>=8.5.10'
