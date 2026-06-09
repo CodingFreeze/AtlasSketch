@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --font-atlas-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-atlas-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --font-atlas-sans: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-atlas-mono: var(--font-plex-mono), "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
   --atlas-grid-line: rgba(184, 255, 106, 0.055);
   --atlas-grid-cross: rgba(98, 230, 255, 0.035);
   color-scheme: dark;
