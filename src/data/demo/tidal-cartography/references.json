@@ -1,0 +1,986 @@
+[
+  {
+    "id": "ref-101",
+    "boardSlug": "tidal-cartography",
+    "title": "Harmonic Threshold Gauge",
+    "placeholderPath": "/demo/placeholders/ref-101.svg",
+    "sourceClass": "archive-scan",
+    "clusterId": "cluster-harmonic-gauges",
+    "tags": [
+      "tide",
+      "harmonics",
+      "pull",
+      "needle"
+    ],
+    "motifs": [
+      "bearing rose",
+      "harmonic comb",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ],
+    "composition": "Large left register, nested bearing rails, small datum cells along the lower edge.",
+    "notes": "Turns depth metrics into a disciplined visual register.",
+    "aestheticAxes": {
+      "density": 53,
+      "contrast": 92,
+      "ritual": 75,
+      "signal": 66
+    }
+  },
+  {
+    "id": "ref-102",
+    "boardSlug": "tidal-cartography",
+    "title": "Bearing Meridian Plate",
+    "placeholderPath": "/demo/placeholders/ref-102.svg",
+    "sourceClass": "control-room",
+    "clusterId": "cluster-harmonic-gauges",
+    "tags": [
+      "survey",
+      "plates",
+      "needle",
+      "resonance"
+    ],
+    "motifs": [
+      "depth ladder",
+      "bearing rose",
+      "needle arc"
+    ],
+    "palette": [
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      }
+    ],
+    "composition": "Centered gauge field crossed by calibrated combs and clipped rust marks.",
+    "notes": "Useful for thinking about passages, loading states, and framed routes.",
+    "aestheticAxes": {
+      "density": 60,
+      "contrast": 43,
+      "ritual": 82,
+      "signal": 73
+    }
+  },
+  {
+    "id": "ref-103",
+    "boardSlug": "tidal-cartography",
+    "title": "Tide Reliquary Register",
+    "placeholderPath": "/demo/placeholders/ref-103.svg",
+    "sourceClass": "diagram",
+    "clusterId": "cluster-harmonic-gauges",
+    "tags": [
+      "harmonics",
+      "salvage",
+      "resonance",
+      "amplitude"
+    ],
+    "motifs": [
+      "harmonic comb",
+      "datum notch",
+      "harmonic comb"
+    ],
+    "palette": [
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      },
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      }
+    ],
+    "composition": "Stacked depth rows orbit a quiet central tide well.",
+    "notes": "Turns monitoring into a spatial survey with a central calm point.",
+    "aestheticAxes": {
+      "density": 67,
+      "contrast": 50,
+      "ritual": 89,
+      "signal": 80
+    }
+  },
+  {
+    "id": "ref-104",
+    "boardSlug": "tidal-cartography",
+    "title": "Depth Pressure Ladder",
+    "placeholderPath": "/demo/placeholders/ref-104.svg",
+    "sourceClass": "instrument-panel",
+    "clusterId": "cluster-harmonic-gauges",
+    "tags": [
+      "plates",
+      "gauge",
+      "amplitude",
+      "pull"
+    ],
+    "motifs": [
+      "datum notch",
+      "needle arc",
+      "bearing rose"
+    ],
+    "palette": [
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      }
+    ],
+    "composition": "A vertical depth ladder interrupts a field of compact survey counters.",
+    "notes": "Best for detail drawers, comparison overlays, and source annotation.",
+    "aestheticAxes": {
+      "density": 74,
+      "contrast": 57,
+      "ritual": 40,
+      "signal": 87
+    }
+  },
+  {
+    "id": "ref-105",
+    "boardSlug": "tidal-cartography",
+    "title": "Survey Coordinate Gate",
+    "placeholderPath": "/demo/placeholders/ref-105.svg",
+    "sourceClass": "manuscript",
+    "clusterId": "cluster-harmonic-gauges",
+    "tags": [
+      "salvage",
+      "tide",
+      "pull",
+      "needle"
+    ],
+    "motifs": [
+      "contour rail",
+      "harmonic comb",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      },
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      }
+    ],
+    "composition": "Twin engraved plates hold a field of crossing contour rails.",
+    "notes": "Extends the bearing language into a label-heavy harmonic study.",
+    "aestheticAxes": {
+      "density": 81,
+      "contrast": 64,
+      "ritual": 47,
+      "signal": 94
+    }
+  },
+  {
+    "id": "ref-106",
+    "boardSlug": "tidal-cartography",
+    "title": "Orbital Datum Well",
+    "placeholderPath": "/demo/placeholders/ref-106.svg",
+    "sourceClass": "terminal",
+    "clusterId": "cluster-harmonic-gauges",
+    "tags": [
+      "gauge",
+      "survey",
+      "needle",
+      "resonance"
+    ],
+    "motifs": [
+      "bearing rose",
+      "bearing rose",
+      "needle arc"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ],
+    "composition": "Concentric bearing rings sit inside stacked register rails.",
+    "notes": "A pressure-reading surface that feels measured rather than urgent.",
+    "aestheticAxes": {
+      "density": 88,
+      "contrast": 71,
+      "ritual": 54,
+      "signal": 45
+    }
+  },
+  {
+    "id": "ref-107",
+    "boardSlug": "tidal-cartography",
+    "title": "Salvage Marginalia Table",
+    "placeholderPath": "/demo/placeholders/ref-107.svg",
+    "sourceClass": "archive-scan",
+    "clusterId": "cluster-survey-plates",
+    "tags": [
+      "tide",
+      "harmonics",
+      "bearing",
+      "contour"
+    ],
+    "motifs": [
+      "depth ladder",
+      "datum notch",
+      "contour rail"
+    ],
+    "palette": [
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      }
+    ],
+    "composition": "Offset survey plates reveal margin notes under salvage glass.",
+    "notes": "A useful mood source for sidebars, indexes, and filtered browsing.",
+    "aestheticAxes": {
+      "density": 95,
+      "contrast": 78,
+      "ritual": 61,
+      "signal": 52
+    }
+  },
+  {
+    "id": "ref-108",
+    "boardSlug": "tidal-cartography",
+    "title": "Voltage Tide Cartouche",
+    "placeholderPath": "/demo/placeholders/ref-108.svg",
+    "sourceClass": "control-room",
+    "clusterId": "cluster-survey-plates",
+    "tags": [
+      "survey",
+      "plates",
+      "contour",
+      "coordinate"
+    ],
+    "motifs": [
+      "harmonic comb",
+      "plate edge",
+      "bearing rose"
+    ],
+    "palette": [
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      },
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      }
+    ],
+    "composition": "A narrow annotated tide capsule crosses a larger calibration field.",
+    "notes": "Good for multi-reference comparison and survey detail screens.",
+    "aestheticAxes": {
+      "density": 46,
+      "contrast": 85,
+      "ritual": 68,
+      "signal": 59
+    }
+  },
+  {
+    "id": "ref-109",
+    "boardSlug": "tidal-cartography",
+    "title": "Overflow Harmonic Comb",
+    "placeholderPath": "/demo/placeholders/ref-109.svg",
+    "sourceClass": "diagram",
+    "clusterId": "cluster-survey-plates",
+    "tags": [
+      "harmonics",
+      "salvage",
+      "coordinate",
+      "engraving"
+    ],
+    "motifs": [
+      "datum notch",
+      "contour rail",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      }
+    ],
+    "composition": "Several harmonic combs climb toward clipped amber datum notches.",
+    "notes": "The rust accent marks a salvage state without taking over.",
+    "aestheticAxes": {
+      "density": 53,
+      "contrast": 92,
+      "ritual": 75,
+      "signal": 66
+    }
+  },
+  {
+    "id": "ref-110",
+    "boardSlug": "tidal-cartography",
+    "title": "Catalog Contour Rail",
+    "placeholderPath": "/demo/placeholders/ref-110.svg",
+    "sourceClass": "instrument-panel",
+    "clusterId": "cluster-survey-plates",
+    "tags": [
+      "plates",
+      "gauge",
+      "engraving",
+      "bearing"
+    ],
+    "motifs": [
+      "contour rail",
+      "bearing rose",
+      "plate edge"
+    ],
+    "palette": [
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      },
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      }
+    ],
+    "composition": "A coordinate spine locks pale plates into a compact vertical rail.",
+    "notes": "Reads like an entry rite into a larger tidal survey.",
+    "aestheticAxes": {
+      "density": 60,
+      "contrast": 43,
+      "ritual": 82,
+      "signal": 73
+    }
+  },
+  {
+    "id": "ref-111",
+    "boardSlug": "tidal-cartography",
+    "title": "Inspection Plate Array",
+    "placeholderPath": "/demo/placeholders/ref-111.svg",
+    "sourceClass": "manuscript",
+    "clusterId": "cluster-survey-plates",
+    "tags": [
+      "salvage",
+      "tide",
+      "bearing",
+      "contour"
+    ],
+    "motifs": [
+      "bearing rose",
+      "datum notch",
+      "contour rail"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ],
+    "composition": "Four register panes share a contour scaffold and quiet cyan datum points.",
+    "notes": "A navigational gauge translated into an interface control state.",
+    "aestheticAxes": {
+      "density": 67,
+      "contrast": 50,
+      "ritual": 89,
+      "signal": 80
+    }
+  },
+  {
+    "id": "ref-112",
+    "boardSlug": "tidal-cartography",
+    "title": "Datum Rosette Study",
+    "placeholderPath": "/demo/placeholders/ref-112.svg",
+    "sourceClass": "terminal",
+    "clusterId": "cluster-survey-plates",
+    "tags": [
+      "gauge",
+      "survey",
+      "contour",
+      "coordinate"
+    ],
+    "motifs": [
+      "depth ladder",
+      "plate edge",
+      "bearing rose"
+    ],
+    "palette": [
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      }
+    ],
+    "composition": "Radial bearing wheel set against a disciplined rectangular frame.",
+    "notes": "The structure suggests monitoring as careful preservation of a tide.",
+    "aestheticAxes": {
+      "density": 74,
+      "contrast": 57,
+      "ritual": 40,
+      "signal": 87
+    }
+  },
+  {
+    "id": "ref-113",
+    "boardSlug": "tidal-cartography",
+    "title": "Standing Wave Console",
+    "placeholderPath": "/demo/placeholders/ref-113.svg",
+    "sourceClass": "archive-scan",
+    "clusterId": "cluster-tide-registers",
+    "tags": [
+      "tide",
+      "harmonics",
+      "register",
+      "depth"
+    ],
+    "motifs": [
+      "harmonic comb",
+      "depth ladder",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      },
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      }
+    ],
+    "composition": "Large left register, nested bearing rails, small datum cells along the lower edge.",
+    "notes": "Turns depth metrics into a disciplined visual register.",
+    "aestheticAxes": {
+      "density": 81,
+      "contrast": 64,
+      "ritual": 47,
+      "signal": 94
+    }
+  },
+  {
+    "id": "ref-114",
+    "boardSlug": "tidal-cartography",
+    "title": "Engraved Bearing Field",
+    "placeholderPath": "/demo/placeholders/ref-114.svg",
+    "sourceClass": "control-room",
+    "clusterId": "cluster-tide-registers",
+    "tags": [
+      "survey",
+      "plates",
+      "depth",
+      "rising"
+    ],
+    "motifs": [
+      "datum notch",
+      "harmonic comb",
+      "register rows"
+    ],
+    "palette": [
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      }
+    ],
+    "composition": "Centered gauge field crossed by calibrated combs and clipped rust marks.",
+    "notes": "Useful for thinking about passages, loading states, and framed routes.",
+    "aestheticAxes": {
+      "density": 88,
+      "contrast": 71,
+      "ritual": 54,
+      "signal": 45
+    }
+  },
+  {
+    "id": "ref-115",
+    "boardSlug": "tidal-cartography",
+    "title": "Rising Register Stack",
+    "placeholderPath": "/demo/placeholders/ref-115.svg",
+    "sourceClass": "diagram",
+    "clusterId": "cluster-tide-registers",
+    "tags": [
+      "harmonics",
+      "salvage",
+      "rising",
+      "channel"
+    ],
+    "motifs": [
+      "contour rail",
+      "datum notch",
+      "depth ladder"
+    ],
+    "palette": [
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      },
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      }
+    ],
+    "composition": "Stacked depth rows orbit a quiet central tide well.",
+    "notes": "Turns monitoring into a spatial survey with a central calm point.",
+    "aestheticAxes": {
+      "density": 95,
+      "contrast": 78,
+      "ritual": 61,
+      "signal": 52
+    }
+  },
+  {
+    "id": "ref-116",
+    "boardSlug": "tidal-cartography",
+    "title": "Pressure Depth Ladder",
+    "placeholderPath": "/demo/placeholders/ref-116.svg",
+    "sourceClass": "instrument-panel",
+    "clusterId": "cluster-tide-registers",
+    "tags": [
+      "plates",
+      "gauge",
+      "channel",
+      "register"
+    ],
+    "motifs": [
+      "bearing rose",
+      "register rows",
+      "harmonic comb"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ],
+    "composition": "A vertical depth ladder interrupts a field of compact survey counters.",
+    "notes": "Best for detail drawers, comparison overlays, and source annotation.",
+    "aestheticAxes": {
+      "density": 46,
+      "contrast": 85,
+      "ritual": 68,
+      "signal": 59
+    }
+  },
+  {
+    "id": "ref-117",
+    "boardSlug": "tidal-cartography",
+    "title": "Transit Survey Gate",
+    "placeholderPath": "/demo/placeholders/ref-117.svg",
+    "sourceClass": "manuscript",
+    "clusterId": "cluster-tide-registers",
+    "tags": [
+      "salvage",
+      "tide",
+      "register",
+      "depth"
+    ],
+    "motifs": [
+      "depth ladder",
+      "depth ladder",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      }
+    ],
+    "composition": "Twin engraved plates hold a field of crossing contour rails.",
+    "notes": "Extends the bearing language into a label-heavy harmonic study.",
+    "aestheticAxes": {
+      "density": 53,
+      "contrast": 92,
+      "ritual": 75,
+      "signal": 66
+    }
+  },
+  {
+    "id": "ref-118",
+    "boardSlug": "tidal-cartography",
+    "title": "Concentric Tide Well",
+    "placeholderPath": "/demo/placeholders/ref-118.svg",
+    "sourceClass": "terminal",
+    "clusterId": "cluster-tide-registers",
+    "tags": [
+      "gauge",
+      "survey",
+      "depth",
+      "rising"
+    ],
+    "motifs": [
+      "harmonic comb",
+      "harmonic comb",
+      "register rows"
+    ],
+    "palette": [
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      },
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      }
+    ],
+    "composition": "Concentric bearing rings sit inside stacked register rails.",
+    "notes": "A pressure-reading surface that feels measured rather than urgent.",
+    "aestheticAxes": {
+      "density": 60,
+      "contrast": 43,
+      "ritual": 82,
+      "signal": 73
+    }
+  },
+  {
+    "id": "ref-119",
+    "boardSlug": "tidal-cartography",
+    "title": "Salvage Lightbox Sheet",
+    "placeholderPath": "/demo/placeholders/ref-119.svg",
+    "sourceClass": "archive-scan",
+    "clusterId": "cluster-salvage-tables",
+    "tags": [
+      "tide",
+      "harmonics",
+      "inspection",
+      "translucent"
+    ],
+    "motifs": [
+      "datum notch",
+      "datum notch",
+      "contour rail"
+    ],
+    "palette": [
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      }
+    ],
+    "composition": "Offset survey plates reveal margin notes under salvage glass.",
+    "notes": "A useful mood source for sidebars, indexes, and filtered browsing.",
+    "aestheticAxes": {
+      "density": 67,
+      "contrast": 50,
+      "ritual": 89,
+      "signal": 80
+    }
+  },
+  {
+    "id": "ref-120",
+    "boardSlug": "tidal-cartography",
+    "title": "Annotated Tide Capsule",
+    "placeholderPath": "/demo/placeholders/ref-120.svg",
+    "sourceClass": "control-room",
+    "clusterId": "cluster-salvage-tables",
+    "tags": [
+      "survey",
+      "plates",
+      "translucent",
+      "salvage"
+    ],
+    "motifs": [
+      "contour rail",
+      "depth ladder",
+      "plate edge"
+    ],
+    "palette": [
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      },
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      }
+    ],
+    "composition": "A narrow annotated tide capsule crosses a larger calibration field.",
+    "notes": "Good for multi-reference comparison and survey detail screens.",
+    "aestheticAxes": {
+      "density": 74,
+      "contrast": 57,
+      "ritual": 40,
+      "signal": 87
+    }
+  },
+  {
+    "id": "ref-121",
+    "boardSlug": "tidal-cartography",
+    "title": "Amber Datum Comb",
+    "placeholderPath": "/demo/placeholders/ref-121.svg",
+    "sourceClass": "diagram",
+    "clusterId": "cluster-salvage-tables",
+    "tags": [
+      "harmonics",
+      "salvage",
+      "salvage",
+      "worktable"
+    ],
+    "motifs": [
+      "bearing rose",
+      "contour rail",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ],
+    "composition": "Several harmonic combs climb toward clipped amber datum notches.",
+    "notes": "The rust accent marks a salvage state without taking over.",
+    "aestheticAxes": {
+      "density": 81,
+      "contrast": 64,
+      "ritual": 47,
+      "signal": 94
+    }
+  },
+  {
+    "id": "ref-122",
+    "boardSlug": "tidal-cartography",
+    "title": "Compact Contour Spine",
+    "placeholderPath": "/demo/placeholders/ref-122.svg",
+    "sourceClass": "instrument-panel",
+    "clusterId": "cluster-salvage-tables",
+    "tags": [
+      "plates",
+      "gauge",
+      "worktable",
+      "inspection"
+    ],
+    "motifs": [
+      "depth ladder",
+      "plate edge",
+      "depth ladder"
+    ],
+    "palette": [
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      }
+    ],
+    "composition": "A coordinate spine locks pale plates into a compact vertical rail.",
+    "notes": "Reads like an entry rite into a larger tidal survey.",
+    "aestheticAxes": {
+      "density": 88,
+      "contrast": 71,
+      "ritual": 54,
+      "signal": 45
+    }
+  },
+  {
+    "id": "ref-123",
+    "boardSlug": "tidal-cartography",
+    "title": "Folio Plate Array",
+    "placeholderPath": "/demo/placeholders/ref-123.svg",
+    "sourceClass": "manuscript",
+    "clusterId": "cluster-salvage-tables",
+    "tags": [
+      "salvage",
+      "tide",
+      "inspection",
+      "translucent"
+    ],
+    "motifs": [
+      "harmonic comb",
+      "datum notch",
+      "contour rail"
+    ],
+    "palette": [
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      },
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      }
+    ],
+    "composition": "Four register panes share a contour scaffold and quiet cyan datum points.",
+    "notes": "A navigational gauge translated into an interface control state.",
+    "aestheticAxes": {
+      "density": 95,
+      "contrast": 78,
+      "ritual": 61,
+      "signal": 52
+    }
+  },
+  {
+    "id": "ref-124",
+    "boardSlug": "tidal-cartography",
+    "title": "Bearing Datum Rosette",
+    "placeholderPath": "/demo/placeholders/ref-124.svg",
+    "sourceClass": "terminal",
+    "clusterId": "cluster-salvage-tables",
+    "tags": [
+      "gauge",
+      "survey",
+      "translucent",
+      "salvage"
+    ],
+    "motifs": [
+      "datum notch",
+      "depth ladder",
+      "plate edge"
+    ],
+    "palette": [
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      }
+    ],
+    "composition": "Radial bearing wheel set against a disciplined rectangular frame.",
+    "notes": "The structure suggests monitoring as careful preservation of a tide.",
+    "aestheticAxes": {
+      "density": 46,
+      "contrast": 85,
+      "ritual": 68,
+      "signal": 59
+    }
+  }
+]

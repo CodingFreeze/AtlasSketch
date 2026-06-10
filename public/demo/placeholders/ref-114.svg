@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Abstract tidal survey placeholder ref 114">
+  <rect width="640" height="480" fill="#04080d"/>
+  <path d="M0 80h640M0 160h640M0 240h640M0 320h640M0 400h640M80 0v480M160 0v480M240 0v480M320 0v480M400 0v480M480 0v480M560 0v480" stroke="#16312f" stroke-width="1"/>
+  <rect x="78" y="60" width="484" height="380" fill="#0c1a1c" stroke="#ffb454" stroke-width="3"/>
+  <path d="M116 110h334M116 150h334M116 190h334M116 230h334M116 270h334M116 310h334" stroke="#16312f" stroke-width="2"/><path d="M448 96v272" stroke="#ffb454" stroke-width="4"/><path d="M112 110h76M112 190h146M112 270h102M112 350h184" stroke="#5cd0e6" stroke-width="5"/>
+  <text x="92" y="404" fill="#5cd0e6" font-family="monospace" font-size="28">REF-114</text>
+</svg>

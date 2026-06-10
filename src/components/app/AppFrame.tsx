@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Archive, Boxes, CircuitBoard, FlaskConical, Library, Network } from "lucide-react";
+import { Archive, Boxes, CircuitBoard, FlaskConical, Github, Library, Network } from "lucide-react";
 
 import type { Board } from "@/domain/types";
 import { cn } from "@/lib/cn";
@@ -45,22 +45,33 @@ export function AppFrame({ activeSection = "boards", board, children }: AppFrame
     <div className="min-h-dvh overflow-x-clip bg-atlas-black text-atlas-paper">
       <header className="sticky top-0 z-20 border-b border-atlas-line bg-atlas-black/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 lg:flex-row lg:items-center lg:justify-between lg:px-6">
-          <Link
-            className="group flex min-w-0 items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-atlas-cyan"
-            href="/"
-          >
-            <span className="flex size-9 shrink-0 items-center justify-center border border-atlas-lime bg-atlas-lime/10 text-atlas-lime">
-              <Boxes aria-hidden="true" size={18} strokeWidth={1.8} />
-            </span>
-            <span className="min-w-0">
-              <span className="block font-mono text-sm font-semibold uppercase tracking-[0.2em] text-atlas-lime">
-                AtlasSketch
+          <div className="flex min-w-0 items-center gap-3">
+            <Link
+              className="group flex min-w-0 items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-atlas-cyan"
+              href="/"
+            >
+              <span className="flex size-9 shrink-0 items-center justify-center border border-atlas-lime bg-atlas-lime/10 text-atlas-lime">
+                <Boxes aria-hidden="true" size={18} strokeWidth={1.8} />
               </span>
-              <span className="block truncate font-mono text-[10px] uppercase tracking-[0.18em] text-atlas-muted">
-                {board ? `${board.title} / ${board.version}` : "Compiled taste atlas"}
+              <span className="min-w-0">
+                <span className="block font-mono text-sm font-semibold uppercase tracking-[0.2em] text-atlas-lime">
+                  AtlasSketch
+                </span>
+                <span className="block truncate font-mono text-[10px] uppercase tracking-[0.18em] text-atlas-muted">
+                  {board ? `${board.title} / ${board.version}` : "Compiled taste atlas"}
+                </span>
               </span>
-            </span>
-          </Link>
+            </Link>
+            <a
+              aria-label="AtlasSketch on GitHub"
+              className="flex size-9 shrink-0 items-center justify-center border border-atlas-line bg-atlas-panel/70 text-atlas-muted transition-colors hover:border-atlas-cyan hover:text-atlas-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-atlas-cyan"
+              href="https://github.com/CodingFreeze/AtlasSketch"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Github aria-hidden="true" size={16} strokeWidth={1.8} />
+            </a>
+          </div>
           <nav aria-label="Primary navigation" className="flex min-w-0 gap-1 overflow-x-auto">
             {nav.map(({ Icon, key, label, planned, ...item }) => {
               const className = cn(

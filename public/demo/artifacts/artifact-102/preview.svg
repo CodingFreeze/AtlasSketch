@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-label="Survey Plate Cartography preview">
+  <rect width="640" height="400" fill="#04080d"/>
+  <path d="M0 40H640M0 120H640M0 200H640M0 280H640M0 360H640M80 0V400M160 0V400M240 0V400M320 0V400M400 0V400M480 0V400M560 0V400" stroke="#ffb454" stroke-opacity=".12"/>
+  <rect x="28" y="28" width="584" height="344" fill="none" stroke="#e7f4f2" stroke-opacity=".18"/>
+  <circle cx="200" cy="160" r="61" fill="none" stroke="#5cd0e6" stroke-opacity=".75" stroke-dasharray="8 8"/>
+  <path d="M84 290 C 178 99, 314 319, 556 108" fill="none" stroke="#ffb454" stroke-width="3" stroke-opacity=".8"/>
+  <path d="M300 92H548V150H300zM316 190H560V294H316z" fill="none" stroke="#d6552f" stroke-opacity=".7"/>
+  <text x="44" y="64" fill="#e7f4f2" font-family="IBM Plex Mono, Consolas, monospace" font-size="22" font-weight="700">Survey Plate Cartography</text>
+  <text x="44" y="94" fill="#ffb454" font-family="IBM Plex Mono, Consolas, monospace" font-size="13">data-cartography / variant 2</text>
+  <text x="44" y="350" fill="#e7f4f2" fill-opacity=".68" font-family="IBM Plex Mono, Consolas, monospace" font-size="12">survey / plates / bearing</text>
+</svg>

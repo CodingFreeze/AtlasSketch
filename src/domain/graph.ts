@@ -36,6 +36,19 @@ const clusterAnchors: Record<string, { x: number; y: number }> = {
   "cluster-sourcebook-light-tables": { x: 31, y: 24 },
 };
 
+// Fallback anchors by quadrant so any board's clusters spread out even when
+// its specific cluster ids are not enumerated above.
+const regionAnchors: Record<string, { x: number; y: number }> = {
+  northeast: { x: 73, y: 28 },
+  southeast: { x: 70, y: 73 },
+  southwest: { x: 29, y: 58 },
+  northwest: { x: 31, y: 24 },
+};
+
+function anchorFor(cluster: Cluster): { x: number; y: number } {
+  return clusterAnchors[cluster.id] ?? regionAnchors[cluster.region] ?? { x: 50, y: 50 };
+}
+
 function slugify(value: string): string {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
@@ -55,7 +68,7 @@ function clampCoordinate(value: number): number {
 }
 
 function referencePosition(cluster: Cluster, index: number, total: number) {
-  const anchor = clusterAnchors[cluster.id] ?? { x: 50, y: 50 };
+  const anchor = anchorFor(cluster);
   const angle = (Math.PI * 2 * index) / Math.max(total, 1) - Math.PI / 2;
   const ring = 10 + (index % 2) * 5;
 
@@ -102,7 +115,7 @@ export function buildAtlasGraph(board: Board, clusters: Cluster[], references: R
   }
 
   clusters.forEach((cluster) => {
-    const anchor = clusterAnchors[cluster.id] ?? { x: 50, y: 50 };
+    const anchor = anchorFor(cluster);
     nodes.push({
       id: cluster.id,
       kind: "cluster",

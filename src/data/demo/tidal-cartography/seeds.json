@@ -1,0 +1,190 @@
+[
+  {
+    "id": "seed-tidal-gauges",
+    "boardSlug": "tidal-cartography",
+    "title": "Tidal Gauge Rite",
+    "artifactFamily": "interface-panel",
+    "clusterIds": [
+      "cluster-harmonic-gauges"
+    ],
+    "referenceIds": [
+      "ref-101",
+      "ref-102",
+      "ref-103"
+    ],
+    "prompt": "Generate a calibrated harmonic gauge panel with bearing rings, measured needle combs, and one ceremonial datum focus.",
+    "parameters": {
+      "density": 53,
+      "mutation": 45,
+      "motion": 49,
+      "gridIntensity": 79,
+      "signalNoise": 88,
+      "paletteAdherence": 62
+    },
+    "tags": [
+      "harmonics",
+      "gauge",
+      "tide"
+    ],
+    "motifs": [
+      "harmonic comb",
+      "bearing rose",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      }
+    ]
+  },
+  {
+    "id": "seed-tidal-plates",
+    "boardSlug": "tidal-cartography",
+    "title": "Survey Plate Cartography",
+    "artifactFamily": "data-cartography",
+    "clusterIds": [
+      "cluster-survey-plates"
+    ],
+    "referenceIds": [
+      "ref-107",
+      "ref-108",
+      "ref-109"
+    ],
+    "prompt": "Generate an engraved survey map with contour rails, bearing coordinates, and one salvage-marked focus plate.",
+    "parameters": {
+      "density": 60,
+      "mutation": 52,
+      "motion": 56,
+      "gridIntensity": 86,
+      "signalNoise": 95,
+      "paletteAdherence": 69
+    },
+    "tags": [
+      "survey",
+      "plates",
+      "bearing"
+    ],
+    "motifs": [
+      "contour rail",
+      "bearing rose",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ]
+  },
+  {
+    "id": "seed-tidal-registers",
+    "boardSlug": "tidal-cartography",
+    "title": "Tide Register Litany",
+    "artifactFamily": "glyph-matrix",
+    "clusterIds": [
+      "cluster-tide-registers"
+    ],
+    "referenceIds": [
+      "ref-113",
+      "ref-114",
+      "ref-115"
+    ],
+    "prompt": "Generate a tide register matrix that alternates depth ladders, harmonic comb marks, and rare rising highlights.",
+    "parameters": {
+      "density": 67,
+      "mutation": 59,
+      "motion": 63,
+      "gridIntensity": 93,
+      "signalNoise": 46,
+      "paletteAdherence": 76
+    },
+    "tags": [
+      "tide",
+      "register",
+      "depth"
+    ],
+    "motifs": [
+      "depth ladder",
+      "harmonic comb",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      }
+    ]
+  },
+  {
+    "id": "seed-tidal-tables",
+    "boardSlug": "tidal-cartography",
+    "title": "Salvage Light Table",
+    "artifactFamily": "sourcebook-light-table",
+    "clusterIds": [
+      "cluster-salvage-tables"
+    ],
+    "referenceIds": [
+      "ref-119",
+      "ref-120",
+      "ref-121"
+    ],
+    "prompt": "Generate a salvage inspection table with translucent plate panes, datum marks, and survey comparison channels.",
+    "parameters": {
+      "density": 74,
+      "mutation": 66,
+      "motion": 70,
+      "gridIntensity": 44,
+      "signalNoise": 53,
+      "paletteAdherence": 83
+    },
+    "tags": [
+      "salvage",
+      "survey",
+      "light-table"
+    ],
+    "motifs": [
+      "contour rail",
+      "plate edge",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ]
+  }
+]
