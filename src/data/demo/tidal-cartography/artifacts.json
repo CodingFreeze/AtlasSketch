@@ -1,0 +1,218 @@
+[
+  {
+    "id": "artifact-101",
+    "boardSlug": "tidal-cartography",
+    "title": "Tidal Gauge Console",
+    "family": "interface-panel",
+    "summary": "A calibrated gauge console with bearing rings, harmonic needle combs, and a quiet datum focus ring.",
+    "seedId": "seed-tidal-gauges",
+    "clusterIds": [
+      "cluster-harmonic-gauges"
+    ],
+    "referenceIds": [
+      "ref-101",
+      "ref-102",
+      "ref-103"
+    ],
+    "tags": [
+      "harmonics",
+      "gauge",
+      "tide"
+    ],
+    "motifs": [
+      "harmonic comb",
+      "bearing rose",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      }
+    ],
+    "staticPaths": {
+      "html": "/demo/artifacts/artifact-101/index.html",
+      "preview": "/demo/artifacts/artifact-101/preview.svg",
+      "source": "/demo/artifacts/artifact-101/source.ts"
+    },
+    "lineage": {
+      "seed": "seed-tidal-gauges",
+      "variant": "panel-a",
+      "derivedFrom": [
+        "ref-101",
+        "ref-102",
+        "ref-103"
+      ]
+    }
+  },
+  {
+    "id": "artifact-102",
+    "boardSlug": "tidal-cartography",
+    "title": "Survey Plate Cartography",
+    "family": "data-cartography",
+    "summary": "A coordinate-driven survey plate with contour rails, bearing marks, and compact route diagnostics.",
+    "seedId": "seed-tidal-plates",
+    "clusterIds": [
+      "cluster-survey-plates"
+    ],
+    "referenceIds": [
+      "ref-107",
+      "ref-108",
+      "ref-109"
+    ],
+    "tags": [
+      "survey",
+      "plates",
+      "bearing"
+    ],
+    "motifs": [
+      "contour rail",
+      "bearing rose",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ],
+    "staticPaths": {
+      "html": "/demo/artifacts/artifact-102/index.html",
+      "preview": "/demo/artifacts/artifact-102/preview.svg",
+      "source": "/demo/artifacts/artifact-102/source.ts"
+    },
+    "lineage": {
+      "seed": "seed-tidal-plates",
+      "variant": "cartography-a",
+      "derivedFrom": [
+        "ref-107",
+        "ref-108",
+        "ref-109"
+      ]
+    }
+  },
+  {
+    "id": "artifact-103",
+    "boardSlug": "tidal-cartography",
+    "title": "Tide Register Matrix",
+    "family": "glyph-matrix",
+    "summary": "A strict tide register grid with depth-ladder rows and a restrained salvage accent.",
+    "seedId": "seed-tidal-registers",
+    "clusterIds": [
+      "cluster-tide-registers"
+    ],
+    "referenceIds": [
+      "ref-113",
+      "ref-114",
+      "ref-115"
+    ],
+    "tags": [
+      "tide",
+      "register",
+      "depth"
+    ],
+    "motifs": [
+      "depth ladder",
+      "harmonic comb",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      }
+    ],
+    "staticPaths": {
+      "html": "/demo/artifacts/artifact-103/index.html",
+      "preview": "/demo/artifacts/artifact-103/preview.svg",
+      "source": "/demo/artifacts/artifact-103/source.ts"
+    },
+    "lineage": {
+      "seed": "seed-tidal-registers",
+      "variant": "register-a",
+      "derivedFrom": [
+        "ref-113",
+        "ref-114",
+        "ref-115"
+      ]
+    }
+  },
+  {
+    "id": "artifact-104",
+    "boardSlug": "tidal-cartography",
+    "title": "Salvage Light Table",
+    "family": "sourcebook-light-table",
+    "summary": "A layered inspection table with translucent plates, datum edges, and cyan registration marks.",
+    "seedId": "seed-tidal-tables",
+    "clusterIds": [
+      "cluster-salvage-tables"
+    ],
+    "referenceIds": [
+      "ref-119",
+      "ref-120",
+      "ref-121"
+    ],
+    "tags": [
+      "salvage",
+      "survey",
+      "light-table"
+    ],
+    "motifs": [
+      "contour rail",
+      "plate edge",
+      "datum notch"
+    ],
+    "palette": [
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ],
+    "staticPaths": {
+      "html": "/demo/artifacts/artifact-104/index.html",
+      "preview": "/demo/artifacts/artifact-104/preview.svg",
+      "source": "/demo/artifacts/artifact-104/source.ts"
+    },
+    "lineage": {
+      "seed": "seed-tidal-tables",
+      "variant": "light-table-a",
+      "derivedFrom": [
+        "ref-119",
+        "ref-120",
+        "ref-121"
+      ]
+    }
+  }
+]

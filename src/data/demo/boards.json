@@ -58,5 +58,65 @@
       "placeholders": "/demo/placeholders",
       "artifacts": "/demo/artifacts"
     }
+  },
+  {
+    "id": "board-tidal-cartography",
+    "slug": "tidal-cartography",
+    "title": "Tidal Cartography",
+    "summary": "A compiled atlas of harmonic gauges, survey plates, tide registers, and salvage-light worktables.",
+    "philosophy": "Read the instrument as a tide: every gauge records a pull, every plate fixes a coordinate, and every artifact keeps the private survey abstracted behind public-safe placeholders.",
+    "status": "compiled",
+    "version": "0.1.0",
+    "accent": {
+      "name": "sodium amber",
+      "hex": "#ffb454"
+    },
+    "topTags": [
+      "tide",
+      "survey",
+      "harmonics",
+      "plates",
+      "salvage",
+      "gauge"
+    ],
+    "motifMarks": [
+      "bearing rose",
+      "depth ladder",
+      "harmonic comb",
+      "datum notch",
+      "contour rail"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ],
+    "stats": {
+      "references": 24,
+      "clusters": 4,
+      "seeds": 4,
+      "artifacts": 4
+    },
+    "paths": {
+      "placeholders": "/demo/placeholders",
+      "artifacts": "/demo/artifacts"
+    }
   }
 ]

@@ -1,0 +1,178 @@
+[
+  {
+    "id": "cluster-harmonic-gauges",
+    "boardSlug": "tidal-cartography",
+    "label": "Harmonic Gauges",
+    "description": "Calibrated gauge faces where harmonic pulls are read as needles, combs, and standing-wave ledgers.",
+    "referenceIds": [
+      "ref-101",
+      "ref-102",
+      "ref-103",
+      "ref-104",
+      "ref-105",
+      "ref-106"
+    ],
+    "tags": [
+      "harmonics",
+      "gauge",
+      "tide",
+      "calibration"
+    ],
+    "motifs": [
+      "harmonic comb",
+      "bearing rose",
+      "datum notch",
+      "needle arc"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      }
+    ],
+    "suggestedSeedIds": [
+      "seed-tidal-gauges"
+    ],
+    "region": "northeast"
+  },
+  {
+    "id": "cluster-survey-plates",
+    "boardSlug": "tidal-cartography",
+    "label": "Survey Plates",
+    "description": "Engraved survey plates that fix coordinates, bearings, and contour rails across a quiet datum field.",
+    "referenceIds": [
+      "ref-107",
+      "ref-108",
+      "ref-109",
+      "ref-110",
+      "ref-111",
+      "ref-112"
+    ],
+    "tags": [
+      "survey",
+      "plates",
+      "bearing",
+      "coordinates"
+    ],
+    "motifs": [
+      "contour rail",
+      "bearing rose",
+      "datum notch",
+      "plate edge"
+    ],
+    "palette": [
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ],
+    "suggestedSeedIds": [
+      "seed-tidal-plates"
+    ],
+    "region": "northwest"
+  },
+  {
+    "id": "cluster-tide-registers",
+    "boardSlug": "tidal-cartography",
+    "label": "Tide Registers",
+    "description": "Tabular tide registers stacking depth ladders, rising marks, and salvage-light annotation channels.",
+    "referenceIds": [
+      "ref-113",
+      "ref-114",
+      "ref-115",
+      "ref-116",
+      "ref-117",
+      "ref-118"
+    ],
+    "tags": [
+      "tide",
+      "register",
+      "depth",
+      "harmonics"
+    ],
+    "motifs": [
+      "depth ladder",
+      "harmonic comb",
+      "datum notch",
+      "register rows"
+    ],
+    "palette": [
+      {
+        "name": "charcoal tide",
+        "hex": "#04080d"
+      },
+      {
+        "name": "tide cyan",
+        "hex": "#5cd0e6"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      }
+    ],
+    "suggestedSeedIds": [
+      "seed-tidal-registers"
+    ],
+    "region": "southeast"
+  },
+  {
+    "id": "cluster-salvage-tables",
+    "boardSlug": "tidal-cartography",
+    "label": "Salvage Light Tables",
+    "description": "Salvage-light worktables holding translucent plates, contour rails, and rust-marked inspection notes.",
+    "referenceIds": [
+      "ref-119",
+      "ref-120",
+      "ref-121",
+      "ref-122",
+      "ref-123",
+      "ref-124"
+    ],
+    "tags": [
+      "salvage",
+      "survey",
+      "light-table",
+      "plates"
+    ],
+    "motifs": [
+      "contour rail",
+      "plate edge",
+      "datum notch",
+      "depth ladder"
+    ],
+    "palette": [
+      {
+        "name": "oxidized teal",
+        "hex": "#0c1a1c"
+      },
+      {
+        "name": "sodium amber",
+        "hex": "#ffb454"
+      },
+      {
+        "name": "salvage rust",
+        "hex": "#d6552f"
+      }
+    ],
+    "suggestedSeedIds": [
+      "seed-tidal-tables"
+    ],
+    "region": "southwest"
+  }
+]

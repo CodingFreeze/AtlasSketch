@@ -4,6 +4,11 @@ import clusters from "@/data/demo/ritual-interfaces/clusters.json";
 import manifest from "@/data/demo/ritual-interfaces/manifest.json";
 import references from "@/data/demo/ritual-interfaces/references.json";
 import seeds from "@/data/demo/ritual-interfaces/seeds.json";
+import tidalArtifacts from "@/data/demo/tidal-cartography/artifacts.json";
+import tidalClusters from "@/data/demo/tidal-cartography/clusters.json";
+import tidalManifest from "@/data/demo/tidal-cartography/manifest.json";
+import tidalReferences from "@/data/demo/tidal-cartography/references.json";
+import tidalSeeds from "@/data/demo/tidal-cartography/seeds.json";
 import { buildAtlasGraph } from "./graph";
 import type {
   Artifact,
@@ -33,6 +38,18 @@ const datasets: Record<string, BoardDataset> = {
     atlas: buildAtlasGraph(manifest as Board, clusters as Cluster[], references as ReferenceBlock[]),
     seeds: seeds as Seed[],
     artifacts: artifacts as Artifact[],
+  },
+  "tidal-cartography": {
+    board: tidalManifest as Board,
+    references: tidalReferences as ReferenceBlock[],
+    clusters: tidalClusters as Cluster[],
+    atlas: buildAtlasGraph(
+      tidalManifest as Board,
+      tidalClusters as Cluster[],
+      tidalReferences as ReferenceBlock[]
+    ),
+    seeds: tidalSeeds as Seed[],
+    artifacts: tidalArtifacts as Artifact[],
   },
 };
 

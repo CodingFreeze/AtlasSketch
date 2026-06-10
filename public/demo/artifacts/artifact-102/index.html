@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Survey Plate Cartography / data-cartography v002</title>
+  <style>
+    :root {
+      --bg: #04080d;
+      --panel: #0c1a1c;
+      --text: #e7f4f2;
+      --muted: rgba(231,244,242,0.64);
+      --line: rgba(231,244,242,0.16);
+      --primary: #ffb454;
+      --secondary: #5cd0e6;
+      --warning: #d6552f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh; margin: 0; color: var(--text);
+      background:
+        linear-gradient(rgba(255,180,84,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92,208,230,0.04) 1px, transparent 1px),
+        radial-gradient(circle at 72% 18%, rgba(92,208,230,0.08), transparent 30%),
+        var(--bg);
+      background-size: 28px 28px, 28px 28px, auto, auto;
+      font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    }
+    .artifact { min-height: 100vh; padding: 28px; display: grid; gap: 16px; grid-template-rows: auto 1fr auto; }
+    .topline, .footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid var(--line); background: rgba(4,8,13,0.72); padding: 12px 14px; border-radius: 6px; }
+    h1 { margin: 0; font-size: clamp(20px, 3vw, 38px); line-height: 1; text-transform: uppercase; }
+    .meta, .footer { color: var(--muted); font-size: 11px; text-transform: uppercase; }
+    .dna, .motifs { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag, .motif { border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; background: rgba(231,244,242,0.04); }
+    .tag { color: var(--primary); }
+    .motif { color: var(--secondary); }
+    .frame { border: 1px solid rgba(231,244,242,0.18); border-radius: 8px; background: linear-gradient(135deg, rgba(231,244,242,0.055), rgba(4,8,13,0.84)); overflow: hidden; min-width: 0; display: grid; grid-template-columns: 300px 1fr; min-height: 520px; }
+    aside { border-right: 1px solid var(--line); padding: 18px; display: grid; align-content: start; gap: 16px; }
+    aside p { margin: 0; color: var(--text); font-size: 13px; line-height: 1.55; }
+    .label { color: var(--muted); font-size: 10px; text-transform: uppercase; }
+    .stack { display: grid; gap: 9px; }
+    .row { display: grid; grid-template-columns: 96px 1fr 38px; gap: 8px; align-items: center; color: var(--muted); font-size: 10px; text-transform: uppercase; }
+    .row b { display: block; height: 9px; border: 1px solid var(--line); background: linear-gradient(90deg, var(--primary), var(--secondary)); }
+    .row em { color: var(--primary); font-style: normal; text-align: right; }
+    svg.face { width: 100%; height: 100%; min-height: 520px; padding: 26px; }
+    .ring { fill: none; stroke: var(--primary); stroke-width: 0.6; }
+    .cross { stroke: var(--secondary); stroke-width: 0.3; stroke-dasharray: 1.4 1.4; opacity: 0.6; }
+    .focus { fill: rgba(255,180,84,0.05); stroke: var(--warning); stroke-width: 0.5; stroke-dasharray: 2 2; }
+    @media (max-width: 760px) { .frame { grid-template-columns: 1fr; } aside { border-right: 0; border-bottom: 1px solid var(--line); } svg.face { min-height: 340px; } }
+  </style>
+</head>
+<body>
+  <main class="artifact data-cartography">
+    <header class="topline">
+      <div>
+        <div class="meta">AtlasSketch deterministic artifact / variant 2</div>
+        <h1>Survey Plate Cartography / data-cartography v002</h1>
+      </div>
+      <div class="dna"><span class="tag">survey</span><span class="tag">plates</span><span class="tag">bearing</span></div>
+    </header>
+    <section class="frame">
+      <aside>
+        <span class="label">Survey Plates</span>
+        <p>A coordinate-driven survey plate with contour rails, bearing marks, and compact route diagnostics.</p>
+        <div class="stack"><div class="row"><span>REF-107</span><b style="width:43%"></b><em>001</em></div><div class="row"><span>REF-108</span><b style="width:54%"></b><em>002</em></div><div class="row"><span>REF-109</span><b style="width:65%"></b><em>003</em></div><div class="row"><span>REF-107</span><b style="width:76%"></b><em>004</em></div><div class="row"><span>REF-108</span><b style="width:87%"></b><em>005</em></div><div class="row"><span>REF-109</span><b style="width:38%"></b><em>006</em></div></div>
+      </aside>
+      <svg class="face" viewBox="0 0 100 100" role="img" aria-label="Survey Plate Cartography survey face">
+        <g class="marks"><circle class="ring" cx="50" cy="50" r="34" /><circle class="ring" cx="50" cy="50" r="20" /><line class="cross" x1="50" y1="12" x2="50" y2="88" /><line class="cross" x1="12" y1="50" x2="88" y2="50" /></g>
+        <circle class="focus" cx="50" cy="50" r="44" />
+      </svg>
+    </section>
+    <footer class="footer">
+      <span>data-cartography / seed-tidal-plates</span>
+      <span class="motifs"><span class="motif">contour rail</span><span class="motif">bearing rose</span><span class="motif">datum notch</span></span>
+    </footer>
+  </main>
+</body>
+</html>
