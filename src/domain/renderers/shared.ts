@@ -98,7 +98,7 @@ function normalizeHexColor(value: string): string | undefined {
   return undefined;
 }
 
-export function palette(seed: Seed): PaletteColor[] {
+function palette(seed: Seed): PaletteColor[] {
   if (seed.palette.length > 0) {
     return seed.palette.map((entry, index) => {
       const fallback = DEFAULT_PALETTE[index % DEFAULT_PALETTE.length];
@@ -122,7 +122,7 @@ export function artifactTitle(seed: Seed, variant: number, label: string): strin
   return `${seed.title} / ${label} v${safeVariant.toString().padStart(2, "0")}`;
 }
 
-export function listItems(items: readonly string[], className: string): string {
+function listItems(items: readonly string[], className: string): string {
   return items
     .slice(0, 5)
     .map((item) => `<span class="${className}">${escapeHtml(item)}</span>`)
