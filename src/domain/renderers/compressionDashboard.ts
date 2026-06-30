@@ -13,7 +13,7 @@ export const compressionDashboardRenderer: ArtifactRenderer = (seed, variant) =>
   const safeVariant = safeNumber(variant, 0, 0, 999);
   const title = artifactTitle(seed, variant, "Compression Dashboard");
   const meters = Object.entries(seed.parameters)
-    .map(([key, value], index) => {
+    .map(([key, value]) => {
       const adjusted = safeNumber(value, 50, 4, 98) + rng.int(-8, 8);
       const clamped = safeNumber(adjusted, 50, 4, 98);
       return `<div class="meter"><span>${escapeHtml(key)}</span><b style="width:${clamped}%"></b><em>${clamped.toString().padStart(2, "0")}</em></div>`;
@@ -37,7 +37,7 @@ export const compressionDashboardRenderer: ArtifactRenderer = (seed, variant) =>
         <div class="meters">${meters}</div>
         <div class="status">
           <span class="label">Compression Field</span>
-          <div class="block">${Array.from({ length: 48 }, (_, index) => `<i style="opacity:${0.24 + rng.next() * 0.76}"></i>`).join("")}</div>
+          <div class="block">${Array.from({ length: 48 }, () => `<i style="opacity:${0.24 + rng.next() * 0.76}"></i>`).join("")}</div>
           <div class="recipe">
             <span class="label">Seed Recipe</span>
             <p>${escapeHtml(seed.prompt)}</p>
